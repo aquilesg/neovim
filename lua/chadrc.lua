@@ -5,12 +5,19 @@
 local M = {}
 
 M.ui = {
-	theme = "onedark",
+	theme = "ayu_dark",
+  cmp = {
+    style = "flat_dark",
+  },
+  nvdash = {
+    load_on_startup = true,
+  },
+  lsp_semantic_tokens = false,
 
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+  statusline = {
+    theme = "default",
+    separator_style = "arrow",
+  },
 }
 
 return M
