@@ -3,6 +3,7 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
+local term = require "nvchad.term"
 
 map("n", "<leader>jj", "<cmd> Noice dismiss <CR>", { desc = "Dismiss notification" })
 
@@ -36,3 +37,9 @@ map("n", "<leader>ss", "<cmd> SessionsSave <CR>", { desc = "Save current Session
 map("n", "<leader>tq", "<cmd> TroubleToggle quickfix <CR>", { desc = "Show quickfix list" })
 map("n", "<leader>q", "<cmd> TroubleToggle document_diagnostics <CR>", { desc = "Show Document Diagnostics" })
 map("n", "<leader>tw", "<cmd> TroubleToggle workspace_diagnostics <CR>", { desc = "Show Workspace Diagnostics" })
+
+-- Term mappings
+
+map({ "n", "t" }, "<A>i", function()
+  term.toggle { pos = "sp", id = "uat", cmd = "aws-environment uat platform" }
+end, { desc = "Open Uat Terminal" })
