@@ -16,22 +16,22 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = require "configs.overrides".mason
+    opts = require("configs.overrides").mason,
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = require "configs.overrides".treesitter
+    opts = require("configs.overrides").treesitter,
   },
   {
     "nvim-tree/nvim-tree.lua",
-    opts = require "configs.overrides".nvimtree
+    opts = require("configs.overrides").nvimtree,
   },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-telescope/telescope-live-grep-args.nvim",
     },
-    opts = require "configs.overrides".telescope
+    opts = require("configs.overrides").telescope,
   },
   {
     "hrsh7th/nvim-cmp",
@@ -42,10 +42,10 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
-        "Exafunction/codeium.nvim"
+        "Exafunction/codeium.nvim",
       },
     },
-    opts = require "configs.overrides".cmp
+    opts = require("configs.overrides").cmp,
   },
 
   -- Workspace plugins
@@ -72,14 +72,12 @@ return {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = {
-    },
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
     config = function()
-      require("configs.noice")
+      require "configs.noice"
     end,
   },
   {
@@ -114,7 +112,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      require("configs.obsidian")
+      require "configs.obsidian"
     end,
   },
   {
@@ -124,10 +122,10 @@ return {
       "WorkspacesAdd",
       "WorkspacesList",
       "WorkspacesDelete",
-      "WorkspacesOpenWorkspace"
+      "WorkspacesOpenWorkspace",
     },
     config = function()
-      require("configs.workspaces")
+      require "configs.workspaces"
     end,
   },
   {
@@ -138,7 +136,7 @@ return {
       "SessionsStop",
     },
     config = function()
-      require("configs.sessions")
+      require "configs.sessions"
     end,
   },
 
@@ -146,28 +144,28 @@ return {
   {
     "folke/neodev.nvim",
     config = function()
-      require("neodev").setup({
+      require("neodev").setup {
         library = {
           plugins = {
             "nvim-dap-ui",
           },
-          types = true
+          types = true,
         },
-      })
-    end
+      }
+    end,
   },
   {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
     cmd = {
-      "Lspsaga"
+      "Lspsaga",
     },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("lspsaga").setup({})
+      require("lspsaga").setup {}
     end,
   },
   {
@@ -175,11 +173,11 @@ return {
     dependencies = "neovim/nvim-lspconfig",
     event = "LspAttach",
     config = function()
-      require("garbage-day").setup({
+      require("garbage-day").setup {
         excluded_lsp_clients = {
           "gopls",
-        }
-      })
+        },
+      }
     end,
   },
 
@@ -193,7 +191,7 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("configs.octo")
+      require "configs.octo"
     end,
   },
   {
@@ -204,7 +202,7 @@ return {
       "DiffviewToggleFiles",
       "DiffviewFocusFiles",
       "DiffviewRefresh",
-      "DiffviewFileHistory"
+      "DiffviewFileHistory",
     },
   },
   {
@@ -212,7 +210,7 @@ return {
     cmd = { "BlameToggle" },
     config = function()
       require("blame").setup()
-    end
+    end,
   },
   {
     "kdheepak/lazygit.nvim",
@@ -224,12 +222,12 @@ return {
 
   -- AI tools
   {
-    'Exafunction/codeium.nvim',
+    "Exafunction/codeium.nvim",
     event = "VeryLazy",
     config = function()
-      require("codeium").setup({
-        enable_chat = true
-      })
+      require("codeium").setup {
+        enable_chat = true,
+      }
     end,
   },
   {
@@ -238,7 +236,7 @@ return {
       "GpChatToggle",
       "GpChatNew",
       "GpChatRespond",
-      "GpChatFinder"
+      "GpChatFinder",
     },
     config = function()
       require("gp").setup()
@@ -255,8 +253,7 @@ return {
     },
     config = function()
       require("dapui").setup()
-      require("configs.nvim-dap")
+      require "configs.nvim-dap"
     end,
-  }
-
+  },
 }

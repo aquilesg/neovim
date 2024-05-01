@@ -1,4 +1,4 @@
-require("obsidian").setup({
+require("obsidian").setup {
   workspaces = {
     {
       name = "work",
@@ -12,14 +12,14 @@ require("obsidian").setup({
           subdir = "Templates",
           substitutions = {
             pretty_date = function()
-              return os.date("%B %d, %Y")
+              return os.date "%B %d, %Y"
             end,
-          }
+          },
         },
-      }
+      },
     },
   },
   suppress_missing_scope = {
     projects_v2 = true,
   },
-})
+}
