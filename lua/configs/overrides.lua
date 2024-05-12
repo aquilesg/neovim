@@ -51,15 +51,20 @@ M.mason = {
     "lua-language-server",
     "stylua",
     "bash-language-server",
+    "black",
     "clangd",
     "docker-compose-language-service",
     "dockerfile-language-server",
     "gopls",
+    "gofumpt",
     "graphql-language-service-cli",
     "json-lsp",
+    "markdownlint",
+    "markdown-toc",
     "python-lsp-server",
     "pylama",
     "shellcheck",
+    "shfmt",
     "terraform-ls",
     "tflint",
     "sqlls",
@@ -109,19 +114,6 @@ if cmp_ok then
     sources = {
       { name = "buffer" },
     },
-  })
-  cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = "path" },
-    }, {
-      {
-        name = "cmdline",
-        option = {
-          ignore_cmds = { "Man", "!" },
-        },
-      },
-    }),
   })
 end
 

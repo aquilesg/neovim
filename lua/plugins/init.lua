@@ -139,6 +139,11 @@ return {
       require "configs.sessions"
     end,
   },
+  {
+    "folke/zen-mode.nvim",
+    event = "VeryLazy",
+    dependencies = { "folke/twilight.nvim" },
+  },
 
   -- LSP
   {
