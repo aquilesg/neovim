@@ -28,6 +28,7 @@ local servers = {
   "docker_compose_language_service",
   "gopls",
   "graphql",
+  "html",
   "jsonls",
   "pylsp",
   "ruby_ls",

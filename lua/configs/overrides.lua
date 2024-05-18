@@ -8,6 +8,7 @@ M.treesitter = {
     "dockerfile",
     "go",
     "hcl",
+    "html",
     "graphql",
     "json",
     "lua",
@@ -48,8 +49,7 @@ M.telescope = {
 
 M.mason = {
   ensure_installed = {
-    "lua-language-server",
-    "stylua",
+    "autopep8",
     "bash-language-server",
     "black",
     "clangd",
@@ -58,7 +58,9 @@ M.mason = {
     "gopls",
     "gofumpt",
     "graphql-language-service-cli",
+    "html-lsp",
     "json-lsp",
+    "lua-language-server",
     "markdownlint",
     "markdown-toc",
     "python-lsp-server",
@@ -67,6 +69,7 @@ M.mason = {
     "shfmt",
     "terraform-ls",
     "tflint",
+    "stylua",
     "sqlls",
     "typescript-language-server",
     "yaml-language-server",
@@ -109,12 +112,28 @@ if cmp_ok then
     preselect = cmp.PreselectMode.None,
   }
 
-  cmp.setup.cmdline("/", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = "buffer" },
+  cmp.setup.cmdline(
+    "/",
+    {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
+      },
     },
-  })
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        {
+          name = "cmdline",
+          option = {
+            ignore_cmds = { "Man", "!" },
+          },
+        },
+      }),
+    })
+  )
 end
 
 return M

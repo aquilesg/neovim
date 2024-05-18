@@ -3,6 +3,7 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
+local gitsigns = require("gitsigns")
 
 map("n", "<leader>jj", "<cmd> Noice dismiss <CR>", { desc = "Dismiss notification" })
 
@@ -29,8 +30,13 @@ end, { desc = "Word Search" })
 map("n", "<leader>ge", "<cmd> BlameToggle <CR>", { desc = "Toggle git blame" })
 map("n", "<leader>dv", "<cmd> DiffviewOpen <CR>", { desc = "Open diffview" })
 map("n", "<leader>gl", "<cmd> LazyGit <CR>", { desc = "Open lazygit" })
+map("n", "<leader>gn", "<cmd> Neogit <CR>", { desc = "Open Neogit" })
 map("n", "<leader>wl", "<cmd> Telescope workspaces <CR>", { desc = "List workspaces" })
 map("n", "<leader>ss", "<cmd> SessionsSave <CR>", { desc = "Save current Session" })
+
+-- GitSigns mappings
+map("n", "<leader>sh", gitsigns.stage_hunk, { desc = "Stage Hunk" })
+map("n", "<leader>us", gitsigns.undo_stage_hunk, { desc = "Undo Stage Hunk" })
 
 -- Trouble toggle
 map("n", "<leader>tq", "<cmd> TroubleToggle quickfix <CR>", { desc = "Show quickfix list" })

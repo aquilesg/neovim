@@ -224,7 +224,18 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
-
+  {
+    "NeogitOrg/neogit",
+    cmd = "Neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require "configs.neogit"
+    end,
+  },
   -- AI tools
   {
     "Exafunction/codeium.nvim",
@@ -244,7 +255,7 @@ return {
       "GpChatFinder",
     },
     config = function()
-      require("gp").setup()
+      require "configs.gp"
     end,
   },
 

@@ -23,7 +23,7 @@ require("conform").setup {
   formatters_by_ft = {
     lua = { "stylua" },
     go = { "gofumpt" },
-    python = { "black" },
+    python = { "black", "autopep8" },
     bash = { "shfmt" },
     markdown = { "markdownlint", "markdown-toc" },
   },
