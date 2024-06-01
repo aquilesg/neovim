@@ -22,4 +22,9 @@ require("obsidian").setup {
   suppress_missing_scope = {
     projects_v2 = true,
   },
+  --- Trigger URLS to open
+  ---@param url string
+  follow_url_func = function(url)
+    vim.fn.jobstart { "open", url } -- Mac OS
+  end,
 }
