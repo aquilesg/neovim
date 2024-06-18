@@ -4,6 +4,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 local gitsigns = require "gitsigns"
+local custom = require "custom_functions"
 
 map("n", "<leader>jj", "<cmd> Noice dismiss <CR>", { desc = "Dismiss notification" })
 
@@ -27,80 +28,20 @@ map({ "n", "v" }, "<leader>fw", function()
 end, { desc = "Word Search" })
 
 -- Quality of Life mappings
+map("n", "<leader>fr", "<cmd> GrugFar <CR>", { desc = "Find and Replace" })
 map("n", "<leader>ge", "<cmd> BlameToggle <CR>", { desc = "Toggle git blame" })
 map("n", "<leader>dv", "<cmd> DiffviewOpen <CR>", { desc = "Open diffview" })
 map("n", "<leader>gl", "<cmd> LazyGit <CR>", { desc = "Open lazygit" })
 map("n", "<leader>gn", "<cmd> Neogit <CR>", { desc = "Open Neogit" })
 map("n", "<leader>wl", "<cmd> Telescope workspaces <CR>", { desc = "List workspaces" })
 map("n", "<leader>ss", "<cmd> SessionsSave <CR>", { desc = "Save current Session" })
-map("n", "<leader>ts", function()
-  local timestamp = tostring(os.date "%Y-%m-%d:%H:%M:%S -> ")
-  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  vim.api.nvim_buf_set_lines(0, row, row, false, { "" })
-  vim.api.nvim_win_set_cursor(0, { row + 1, 0 })
-  vim.api.nvim_buf_set_text(0, row, 0, row, 0, { timestamp })
-  vim.cmd "startinsert"
-end, { desc = "Insert timestamp" })
-map("v", "<leader>ft", function()
-  -- Get the visual selection
-  local bufnr = vim.api.nvim_get_current_buf()
-  local start_mark = vim.api.nvim_buf_get_mark(bufnr, "<")
-  local end_mark = vim.api.nvim_buf_get_mark(bufnr, ">")
+map("n", "F1", "<cmd> Octo pr create <CR>", { desc = "Create new PR" })
+map("n", "F2", "<cmd> Octo pr list <CR>", { desc = "List PRs for this repo" })
+map("n", "F3", "<cmd> Octo pr search <CR>", { desc = "Search for PR" })
 
-  if start_mark[1] > end_mark[1] or (start_mark[1] == end_mark[1] and start_mark[2] > end_mark[2]) then
-    start_mark, end_mark = end_mark, start_mark
-  end
-
-  local start_row, start_col = unpack(start_mark)
-  local end_row, end_col = unpack(end_mark)
-  local lines = vim.api.nvim_buf_get_lines(bufnr, start_row - 1, end_row, false)
-
-  -- Break the lines into cells
-  local table_data = {}
-  for _, line in ipairs(lines) do
-    -- Remove leading and trailing pipes and spaces, then split the line into cells
-    local row = {}
-    for cell in line:gmatch "([^|]+)" do
-      table.insert(row, vim.trim(cell))
-    end
-    if #row > 0 then
-      table.insert(table_data, row)
-    end
-  end
-
-  -- Calculate column widths
-  local col_widths = {}
-  for _, row in ipairs(table_data) do
-    for col_idx, cell in ipairs(row) do
-      col_widths[col_idx] = math.max(col_widths[col_idx] or 0, #cell)
-    end
-  end
-
-  -- Generate dashed separator
-  local separator_cells = {}
-  for _, width in ipairs(col_widths) do
-    table.insert(separator_cells, string.rep("-", width))
-  end
-  local separator = "| " .. table.concat(separator_cells, " | ") .. " |"
-
-  -- Prepare formatted lines
-  local formatted_lines = {}
-  for i, row in ipairs(table_data) do
-    local formatted_cells = {}
-    for col_idx, cell in ipairs(row) do
-      table.insert(formatted_cells, string.format("%-" .. col_widths[col_idx] .. "s", cell))
-    end
-    table.insert(formatted_lines, "| " .. table.concat(formatted_cells, " | ") .. " |")
-
-    -- Insert the separator line after the header row
-    if i == 1 then
-      table.insert(formatted_lines, 2, separator)
-    end
-  end
-
-  -- Replace the lines in the buffer with the formatted table
-  vim.api.nvim_buf_set_lines(bufnr, start_row - 1, end_row, false, formatted_lines)
-end, { desc = "Format markdown table" })
+-- Custom functions
+map("n", "<leader>ts", custom.insert_timestamp, { desc = "Insert timestamp" })
+map({ "v", "n" }, "<leader>ft", custom.format_table, { desc = "Format markdown table" })
 
 -- GitSigns mappings
 map("n", "<leader>sh", gitsigns.stage_hunk, { desc = "Stage Hunk" })

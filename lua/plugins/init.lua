@@ -53,8 +53,6 @@ return {
     "folke/trouble.nvim",
     cmd = {
       "Trouble",
-      "TroubleToggle",
-      "TroubleRefresh",
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -141,8 +139,25 @@ return {
   },
   {
     "folke/zen-mode.nvim",
-    event = "VeryLazy",
+    cmd = "ZenMode",
     dependencies = { "folke/twilight.nvim" },
+  },
+  {
+    "NStefan002/donut.nvim",
+    event = "VeryLazy",
+  },
+  {
+    "MagicDuck/grug-far.nvim",
+    config = function()
+      require("grug-far").setup {}
+    end,
+  },
+  {
+    "Myzel394/easytables.nvim",
+    cmd = { "EasyTablesCreateNew", "EasyTablesImportThisTable" },
+    config = function()
+      require("easytables").setup {}
+    end,
   },
 
   -- LSP
