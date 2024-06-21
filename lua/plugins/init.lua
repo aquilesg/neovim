@@ -119,7 +119,6 @@ return {
       "WorkspacesOpen",
       "WorkspacesAdd",
       "WorkspacesList",
-      "WorkspacesDelete",
       "WorkspacesOpenWorkspace",
     },
     config = function()

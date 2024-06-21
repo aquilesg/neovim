@@ -19,6 +19,7 @@ require("obsidian").setup {
       },
     },
   },
+  new_notes_location = "~/Documents/Work/StoryNotes/",
   suppress_missing_scope = {
     projects_v2 = true,
   },
