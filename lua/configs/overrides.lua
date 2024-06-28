@@ -14,6 +14,7 @@ M.treesitter = {
     "lua",
     "markdown",
     "markdown_inline",
+    "mermaid",
     "terraform",
     "sql",
     "vim",

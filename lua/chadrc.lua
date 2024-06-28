@@ -5,11 +5,11 @@
 local M = {}
 
 M.ui = {
-  theme = "github_light",
+  theme = "ashes",
+  theme_toggle = { "ashes", "material_lighter" },
   cmp = {
-    style = "flat_dark",
+    style = "atom_colored",
   },
-  lsp_semantic_tokens = false,
 
   statusline = {
     theme = "default",

@@ -142,10 +142,6 @@ return {
     dependencies = { "folke/twilight.nvim" },
   },
   {
-    "NStefan002/donut.nvim",
-    event = "VeryLazy",
-  },
-  {
     "MagicDuck/grug-far.nvim",
     config = function()
       require("grug-far").setup {}
@@ -158,6 +154,16 @@ return {
       require("easytables").setup {}
     end,
   },
+  -- TODO: Configure this with checkboxes and codeblocks
+  -- {
+  --   "OXY2DEV/markview.nvim",
+  --   dependencies = {
+  --     "nvim-tree/nvim-web-devicons",
+  --   },
+  --   config = function()
+  --     require("markview").setup {}
+  --   end,
+  -- },
 
   -- LSP
   {

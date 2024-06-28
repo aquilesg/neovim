@@ -47,7 +47,7 @@ map({ "v", "n" }, "<leader>ft", custom.format_table, { desc = "Format markdown t
 map("n", "<leader>sh", gitsigns.stage_hunk, { desc = "Stage Hunk" })
 map("n", "<leader>us", gitsigns.undo_stage_hunk, { desc = "Undo Stage Hunk" })
 
--- Trouble toggle
-map("n", "<leader>tq", "<cmd> TroubleToggle quickfix <CR>", { desc = "Show quickfix list" })
-map("n", "<leader>q", "<cmd> TroubleToggle document_diagnostics <CR>", { desc = "Show Document Diagnostics" })
-map("n", "<leader>tw", "<cmd> TroubleToggle workspace_diagnostics <CR>", { desc = "Show Workspace Diagnostics" })
+-- Diagnostics
+map("n", "<leader>qt", "<cmd> Trouble diagnostics toggle <CR>", { desc = "Toggle Trouble" })
+map("n", "<leader>qb", "<cmd> Trouble diagnostics toggle filter.buf=0 <CR>", { desc = "Toggle buffer diagnostics" })
+map("n", "<leader>qf", "<cmd> Trouble qflist toggle <CR>", { desc = "Toggle quickfix list" })
