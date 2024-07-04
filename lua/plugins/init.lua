@@ -154,16 +154,6 @@ return {
       require("easytables").setup {}
     end,
   },
-  -- TODO: Configure this with checkboxes and codeblocks
-  -- {
-  --   "OXY2DEV/markview.nvim",
-  --   dependencies = {
-  --     "nvim-tree/nvim-web-devicons",
-  --   },
-  --   config = function()
-  --     require("markview").setup {}
-  --   end,
-  -- },
 
   -- LSP
   {
@@ -193,6 +183,13 @@ return {
       require("lspsaga").setup {}
     end,
   },
+  {
+    "aznhe21/actions-preview.nvim",
+    config = function()
+      require("actions-preview").setup {}
+    end,
+  },
+
   {
     "zeioth/garbage-day.nvim",
     dependencies = "neovim/nvim-lspconfig",
@@ -267,15 +264,22 @@ return {
     end,
   },
   {
-    "robitx/gp.nvim",
+    "frankroeder/parrot.nvim",
+    tag = "v0.3.1",
     cmd = {
-      "GpChatToggle",
-      "GpChatNew",
-      "GpChatRespond",
-      "GpChatFinder",
+      "PrtChatNew",
+      "PrtProvider",
+      "PrtAgent",
+      "PrtChatToggle",
+      "PrtInfo",
+      "PrtContext",
+      "PrtAsk",
+      "PrtChatFinder",
+      "PrtChatPaste",
     },
+    dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
     config = function()
-      require "configs.gp"
+      require "configs.parrot"
     end,
   },
 
@@ -285,7 +289,17 @@ return {
     dependencies = {
       "mfussenegger/nvim-dap",
       "mfussenegger/nvim-dap-python",
+      "nvim-neotest/nvim-nio",
       "leoluz/nvim-dap-go",
+    },
+    cmd = {
+      "DapNew",
+      "DapContinue",
+      "DapTerminate",
+      "DapToggleBreakpoint",
+      "DapStepOver",
+      "DapStepInto",
+      "DapStepOut",
     },
     config = function()
       require("dapui").setup()

@@ -1,13 +1,13 @@
 require("lspsaga").setup({
   diagnostic = {
     show_code_action = false,
-    diagnostic_only_current = true,
+    diagnostic_only_current = false,
   },
   outline = {
     layout = 'float'
   },
   ui = {
-    enable = false;
+    enable = true;
     sign = false;
     virtual_text = false;
   },

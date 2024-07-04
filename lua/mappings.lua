@@ -16,10 +16,11 @@ map("n", "<leader>on", "<cmd> ObsidianNew <CR>", { desc = "Create new Obsidian n
 map("n", "<leader>os", "<cmd> ObsidianSearch <CR>", { desc = "Search for note" })
 map("n", "<leader>oq", "<cmd> ObsidianQuickSwitch <CR>", { desc = "Quick switch to different Note" })
 
--- GP mappings
-map("n", "<leader>n", "<cmd> GpChatNew <CR>", { desc = "New GPT Chat" })
-map("n", "<leader>1", "<cmd> GpChatRespond <CR>", { desc = "Respond to GPT Chat" })
-map("n", "<leader>2", "<cmd> GpChatToggle <CR>", { desc = "Toggle GPT Chat" })
+-- Parrot mappings
+map("n", "<leader>n", "<cmd> PrtChatNew <CR>", { desc = "New GPT Chat" })
+map("n", "<leader>1", "<cmd> PrtChatRespond <CR>", { desc = "Respond to GPT Chat" })
+map("n", "<leader>2", "<cmd> PrtChatToggle <CR>", { desc = "Toggle GPT Chat" })
+map("v", "<leader>3", "<cmd> '<, '>PrtImplement <CR>", { desc = "Implement selected section" })
 
 -- Telescope overrides
 map({ "n", "v" }, "<leader>ff", "<cmd> Telescope find_files hidden=true <CR>", { desc = "File Search" })
@@ -51,3 +52,14 @@ map("n", "<leader>us", gitsigns.undo_stage_hunk, { desc = "Undo Stage Hunk" })
 map("n", "<leader>qt", "<cmd> Trouble diagnostics toggle <CR>", { desc = "Toggle Trouble" })
 map("n", "<leader>qb", "<cmd> Trouble diagnostics toggle filter.buf=0 <CR>", { desc = "Toggle buffer diagnostics" })
 map("n", "<leader>qf", "<cmd> Trouble qflist toggle <CR>", { desc = "Toggle quickfix list" })
+
+-- Dap UI
+map("n", "<F1>", require("dapui").toggle, { desc = "Toggle Dap UI" })
+map("n", "<F2>", "<cmd> DapNew <CR>", { desc = "Start new DAP session" })
+map("n", "<F3>", "<cmd> DapContinue <CR>", { desc = "Continue Dap" })
+map("n", "<F4>", "<cmd> DapTerminate <CR>", { desc = "Start new DAP session" })
+
+map("n", "<F5>", "<cmd> DapToggleBreakpoint <CR>", { desc = "Toggle breakpoint" })
+map("n", "<F6>", "<cmd> DapStepOver <CR>", { desc = "DapStepOver" })
+map("n", "<F7>", "<cmd> DapStepInto <CR>", { desc = "DapStepInto" })
+map("n", "<F8>", "<cmd> DapStepOut <CR>", { desc = "DapStepOut" })
