@@ -63,3 +63,6 @@ map("n", "<F5>", "<cmd> DapToggleBreakpoint <CR>", { desc = "Toggle breakpoint" 
 map("n", "<F6>", "<cmd> DapStepOver <CR>", { desc = "DapStepOver" })
 map("n", "<F7>", "<cmd> DapStepInto <CR>", { desc = "DapStepInto" })
 map("n", "<F8>", "<cmd> DapStepOut <CR>", { desc = "DapStepOut" })
+
+-- Neotest
+map("n", "<leader>tn", "<cmd> Neotest summary <CR>", { desc = "Open Neotest summary" })

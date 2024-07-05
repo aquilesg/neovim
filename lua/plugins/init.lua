@@ -143,6 +143,9 @@ return {
   },
   {
     "MagicDuck/grug-far.nvim",
+    cmd = {
+      "GrugFar",
+    },
     config = function()
       require("grug-far").setup {}
     end,
@@ -268,14 +271,9 @@ return {
     tag = "v0.3.1",
     cmd = {
       "PrtChatNew",
-      "PrtProvider",
-      "PrtAgent",
+      "PrtChatRespond",
       "PrtChatToggle",
-      "PrtInfo",
-      "PrtContext",
-      "PrtAsk",
-      "PrtChatFinder",
-      "PrtChatPaste",
+      "PrtImplement",
     },
     dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
     config = function()
@@ -304,6 +302,23 @@ return {
     config = function()
       require("dapui").setup()
       require "configs.nvim-dap"
+    end,
+  },
+  {
+    "nvim-neotest/neotest",
+    cmd = {
+      "Neotest",
+    },
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-neotest/neotest-python",
+      "nvim-neotest/neotest-go",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require "configs.neotest"
     end,
   },
 }

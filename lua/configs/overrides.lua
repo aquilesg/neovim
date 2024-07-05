@@ -104,6 +104,7 @@ if cmp_ok then
       { name = "luasnip", group_index = 2, priority = 50 },
     },
     mapping = {
+      ["<Tab>"] = cmp.mapping.complete(),
       ["<C-y>"] = cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
         select = true,

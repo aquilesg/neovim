@@ -5,10 +5,9 @@ require("parrot").setup {
     openai = {
       api_key = os.getenv "OPENAI_API_KEY",
     },
-    -- TODO: I should get a Claude API key
-    -- anthropic = {
-    --   api_key = os.getenv "ANTHROPIC_API_KEY",
-    -- },
+    anthropic = {
+      api_key = os.getenv "ANTHROPIC_API_KEY",
+    },
   },
 
   cmd_prefix = cmd_prefix,

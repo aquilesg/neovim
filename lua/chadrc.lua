@@ -5,8 +5,8 @@
 local M = {}
 
 M.ui = {
-  theme = "ashes",
-  theme_toggle = { "ashes", "ashes" },
+  theme = "flex-light",
+  theme_toggle = { "yoru", "flex-light" },
   cmp = {
     style = "atom_colored",
   },

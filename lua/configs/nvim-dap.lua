@@ -1,11 +1,15 @@
 -- Configure python debugger
-require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+require("dap-python").setup "~/.virtualenvs/debugpy/bin/python"
 
 -- Configure go debugger
 -- Setup adapters
-require("dap-go").setup()
+require("dap-go").setup {
+  delve = {
+    initialize_timeout_sec = 30,
+  },
+}
 
-local dap = require("dap")
+local dap = require "dap"
 local M = {}
 
 dap.adapters.go = function(callback, _)
@@ -63,19 +67,18 @@ dap.configurations.go = {
   },
 }
 
-
 function M.SetDAPBreakpoint()
-  local condition = vim.fn.input('Condition: ')
-  local hit_condition = vim.fn.input('Hit Condition: ')
-  local log_message = vim.fn.input('Log Message: ')
+  local condition = vim.fn.input "Condition: "
+  local hit_condition = vim.fn.input "Hit Condition: "
+  local log_message = vim.fn.input "Log Message: "
 
-  condition = (condition ~= '') and condition or nil
-  hit_condition = (hit_condition ~= '') and hit_condition or nil
-  log_message = (log_message ~= '') and log_message or nil
+  condition = (condition ~= "") and condition or nil
+  hit_condition = (hit_condition ~= "") and hit_condition or nil
+  log_message = (log_message ~= "") and log_message or nil
 
   dap.set_breakpoint(condition, hit_condition, log_message)
 
-  print("Breakpoint set")
+  print "Breakpoint set"
 end
 
 return M
