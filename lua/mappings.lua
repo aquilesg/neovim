@@ -64,5 +64,9 @@ map("n", "<F6>", "<cmd> DapStepOver <CR>", { desc = "DapStepOver" })
 map("n", "<F7>", "<cmd> DapStepInto <CR>", { desc = "DapStepInto" })
 map("n", "<F8>", "<cmd> DapStepOut <CR>", { desc = "DapStepOut" })
 
+-- Languate specific Debug
+-- TODO: Add in stuff for testing / debuggin
+map("n", "<F9>", require("dap-go").debug_test, { desc = "DapStepOut" })
+
 -- Neotest
 map("n", "<leader>tn", "<cmd> Neotest summary <CR>", { desc = "Open Neotest summary" })

@@ -58,13 +58,6 @@ dap.configurations.go = {
     mode = "test",
     program = "${file}",
   },
-  {
-    type = "go",
-    name = "Debug test (go.mod)",
-    request = "launch",
-    mode = "test",
-    program = "./${relativeFileDirname}",
-  },
 }
 
 function M.SetDAPBreakpoint()
