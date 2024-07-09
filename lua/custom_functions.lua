@@ -61,4 +61,12 @@ function M.insert_timestamp()
   vim.cmd "startinsert"
 end
 
+function M.debug_nearest_test()
+  require("neotest").run.run { strategy = "dap" }
+end
+
+function M.open_test()
+  require("neotest").output.open { enter = true }
+end
+
 return M

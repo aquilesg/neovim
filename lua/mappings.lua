@@ -64,9 +64,9 @@ map("n", "<F6>", "<cmd> DapStepOver <CR>", { desc = "DapStepOver" })
 map("n", "<F7>", "<cmd> DapStepInto <CR>", { desc = "DapStepInto" })
 map("n", "<F8>", "<cmd> DapStepOut <CR>", { desc = "DapStepOut" })
 
--- Languate specific Debug
--- TODO: Add in stuff for testing / debuggin
-map("n", "<F9>", require("dap-go").debug_test, { desc = "DapStepOut" })
-
 -- Neotest
-map("n", "<leader>tn", "<cmd> Neotest summary <CR>", { desc = "Open Neotest summary" })
+map("n", "<leader>tn", "<cmd> Neotest summary <CR>", { desc = "Neotest open summary" })
+map("n", "<leader>tr", require("neotest").run.run, { desc = "Neotest run nearest test" })
+map("n", "<leader>tw", require("neotest").watch.watch, { desc = "Neotest watch test" })
+map("n", "<leader>to", custom.open_test, { desc = "Neotest open output" })
+map("n", "<leader>td", custom.debug_nearest_test, { desc = "Neotest debug nearest test" })
