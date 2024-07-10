@@ -51,12 +51,10 @@ return {
   -- Workspace plugins
   {
     "folke/trouble.nvim",
-    cmd = {
-      "Trouble",
-    },
+    event = "LspAttach",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("trouble").setup()
+      require "configs.trouble"
     end,
   },
   {

@@ -3,8 +3,13 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
+local del = vim.keymap.del
 local gitsigns = require "gitsigns"
 local custom = require "custom_functions"
+
+-- Remove mappings I don't like
+del("n", "<leader>v")
+del("n", "<leader>h")
 
 map("n", "<leader>jj", "<cmd> Noice dismiss <CR>", { desc = "Dismiss notification" })
 
@@ -12,9 +17,11 @@ map("n", "<leader>jj", "<cmd> Noice dismiss <CR>", { desc = "Dismiss notificatio
 map("n", "<leader>ot", "<cmd> ObsidianToday <CR>", { desc = "Open today's note" })
 map("n", "<leader>ow", "<cmd> ObsidianTomorrow <CR>", { desc = "Open tomorrows's note" })
 map("n", "<leader>oy", "<cmd> ObsidianYesterday <CR>", { desc = "Open yesterday's note" })
-map("n", "<leader>on", "<cmd> ObsidianNew <CR>", { desc = "Create new Obsidian note" })
 map("n", "<leader>os", "<cmd> ObsidianSearch <CR>", { desc = "Search for note" })
 map("n", "<leader>oq", "<cmd> ObsidianQuickSwitch <CR>", { desc = "Quick switch to different Note" })
+map("n", "<leader>onn", "<cmd> ObsidianNew <CR>", { desc = "Create new Obsidian note" })
+map("n", "<leader>onr", "<cmd> ObsidianNew Research/ <CR>", { desc = "Create new Obsidian note in research" })
+map("n", "<leader>ont", "<cmd> ObsidianTemplate Research <CR>", { desc = "Populate with research template" })
 
 -- Parrot mappings
 map("n", "<leader>n", "<cmd> PrtChatNew <CR>", { desc = "New GPT Chat" })

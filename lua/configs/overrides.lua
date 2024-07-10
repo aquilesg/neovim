@@ -66,6 +66,7 @@ M.mason = {
     "prettier",
     "python-lsp-server",
     "pylama",
+    "ruby_lsp",
     "shellcheck",
     "shfmt",
     "terraform-ls",
@@ -96,8 +97,8 @@ local cmp_ok, cmp = pcall(require, "cmp")
 if cmp_ok then
   M.cmp = {
     sources = {
+      { name = "nvim_lsp", group_index = 2, priority = 400 },
       { name = "codeium", group_index = 2, priority = 75 },
-      { name = "nvim_lsp", group_index = 2, priority = 100 },
       { name = "buffer", group_index = 2, priority = 50 },
       { name = "path", group_index = 2, priority = 50 },
       { name = "nvim_lua", group_index = 2, priority = 50 },
