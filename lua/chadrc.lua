@@ -1,18 +1,24 @@
--- This file  needs to have same structure as nvconfig.lua
--- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
-
----@type ChadrcConfig
 local M = {}
 
 M.ui = {
-  theme = "flex-light",
-  theme_toggle = { "yoru", "flex-light" },
+  theme = "one_light",
+  theme_toggle = { "yoru", "one_light" },
   cmp = {
     style = "atom_colored",
   },
 
   statusline = {
-    theme = "default",
+    theme = "minimal",
+    order = { "mode", "file", "git", "%=", "lsp_msg","recording", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+    modules = {
+      recording = function()
+        local recording = vim.fn.reg_recording()
+        if recording ~= "" then
+          vim.cmd "hi RecordingHighlight guifg=#ffffff guibg=#ff0000 gui=bold"
+          return "%#RecordingHighlight# Recording: @" .. recording .. " %*"
+        end
+      end,
+    },
   },
 }
 

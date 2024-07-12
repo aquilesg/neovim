@@ -9,6 +9,9 @@ require("noice").setup {
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
     },
+    progress = {
+      enabled = false,
+    }
   },
   presets = {
     bottom_search = false, -- use a classic bottom cmdline for search

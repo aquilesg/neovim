@@ -7,13 +7,9 @@ require("lspsaga").setup({
     layout = 'float'
   },
   ui = {
-    enable = true;
+    enable = false;
     sign = false;
     virtual_text = false;
   },
 })
 
--- Disable vim diagnostic text
-vim.diagnostic.config({
-  virutal_text = false,
-})
