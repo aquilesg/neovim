@@ -62,7 +62,7 @@ function M.insert_timestamp()
 end
 
 function M.debug_nearest_test()
-  require("neotest").run.run { strategy = "dap" }
+  require("neotest").run.run({ strategy = "dap" })
 end
 
 function M.open_test()

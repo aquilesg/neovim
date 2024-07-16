@@ -158,17 +158,13 @@ return {
 
   -- LSP
   {
-    "folke/neodev.nvim",
-    config = function()
-      require("neodev").setup {
-        library = {
-          plugins = {
-            "nvim-dap-ui",
-          },
-          types = true,
-        },
-      }
-    end,
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        { path = "luvit-meta/library", words = { "vim%.uv" } },
+      },
+    },
   },
   {
     "nvimdev/lspsaga.nvim",
@@ -268,6 +264,7 @@ return {
     tag = "v0.3.1",
     cmd = {
       "PrtChatNew",
+      "PrtChatFinder",
       "PrtChatRespond",
       "PrtChatToggle",
       "PrtImplement",

@@ -66,7 +66,6 @@ M.mason = {
     "prettier",
     "python-lsp-server",
     "pylama",
-    "ruby_lsp",
     "shellcheck",
     "shfmt",
     "terraform-ls",
@@ -97,12 +96,9 @@ local cmp_ok, cmp = pcall(require, "cmp")
 if cmp_ok then
   M.cmp = {
     sources = {
-      { name = "nvim_lsp", group_index = 2, priority = 400 },
-      { name = "codeium", group_index = 2, priority = 75 },
-      { name = "buffer", group_index = 2, priority = 50 },
-      { name = "path", group_index = 2, priority = 50 },
-      { name = "nvim_lua", group_index = 2, priority = 50 },
-      { name = "luasnip", group_index = 2, priority = 50 },
+      { name = "nvim_lsp", priority = 400 },
+      { name = "codeium",  priority = 75 },
+      { name = "lazydev",  priority = 50 },
     },
     mapping = {
       ["<Tab>"] = cmp.mapping.complete(),
@@ -114,29 +110,6 @@ if cmp_ok then
     },
     preselect = cmp.PreselectMode.None,
   }
-
-  cmp.setup.cmdline(
-    "/",
-    {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = "buffer" },
-      },
-    },
-    cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = "path" },
-      }, {
-        {
-          name = "cmdline",
-          option = {
-            ignore_cmds = { "Man", "!" },
-          },
-        },
-      }),
-    })
-  )
 end
 
 return M

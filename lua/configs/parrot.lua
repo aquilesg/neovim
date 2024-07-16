@@ -13,7 +13,7 @@ require("parrot").setup {
   cmd_prefix = cmd_prefix,
   chat_conceal_model_params = false,
   user_input_ui = "custom",
-  toggle_target = "tabnew",
+  toggle_target = "vsplit",
   hooks = {
     Complete = function(prt, params)
       local template = [[
