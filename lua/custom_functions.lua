@@ -62,11 +62,23 @@ function M.insert_timestamp()
 end
 
 function M.debug_nearest_test()
-  require("neotest").run.run({ strategy = "dap" })
+  require("neotest").run.run { strategy = "dap" }
 end
 
 function M.open_test()
   require("neotest").output.open { enter = true }
+end
+
+function M.set_dark_theme()
+  vim.g.background = "dark"
+  require("base46").toggle_theme()
+  vim.cmd "Lazy reload tiny-inline-diagnostic.nvim"
+end
+
+function M.set_light_theme()
+  vim.g.background = "light"
+  require("base46").toggle_theme()
+  vim.cmd "Lazy reload tiny-inline-diagnostic.nvim"
 end
 
 return M

@@ -19,6 +19,10 @@ vim.opt.conceallevel = 2
 vim.opt.cmdheight = 0
 
 -- Disable vim diagnostic text
-vim.diagnostic.config({
-  virutal_text = false,
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.diagnostic.config {
+      virtual_text = false,
+    }
+  end,
 })

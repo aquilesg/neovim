@@ -19,9 +19,15 @@ map("n", "<leader>ow", "<cmd> ObsidianTomorrow <CR>", { desc = "Open tomorrows's
 map("n", "<leader>oy", "<cmd> ObsidianYesterday <CR>", { desc = "Open yesterday's note" })
 map("n", "<leader>os", "<cmd> ObsidianSearch <CR>", { desc = "Search for note" })
 map("n", "<leader>oq", "<cmd> ObsidianQuickSwitch <CR>", { desc = "Quick switch to different Note" })
+map("n", "<leader>oo", "<cmd> ObsidianOpen <CR>", { desc = "Open current file in Obsidian" })
 map("n", "<leader>onn", "<cmd> ObsidianNew <CR>", { desc = "Create new Obsidian note" })
 map("n", "<leader>oit", "<cmd> ObsidianTemplate <CR>", { desc = "Insert template" })
-map("n", "<leader>ont", "<cmd> ObsidianNewFromTemplate Research/ <CR>", { desc = "Create new Obsidian note in research" })
+map(
+  "n",
+  "<leader>ont",
+  "<cmd> ObsidianNewFromTemplate Research/ <CR>",
+  { desc = "Create new Obsidian note in research" }
+)
 
 -- Parrot mappings
 map("n", "<leader>n", "<cmd> PrtChatNew <CR>", { desc = "New GPT Chat" })
@@ -77,3 +83,7 @@ map("n", "<leader>tr", require("neotest").run.run, { desc = "Neotest run nearest
 map("n", "<leader>tw", require("neotest").watch.watch, { desc = "Neotest watch test" })
 map("n", "<leader>to", custom.open_test, { desc = "Neotest open output" })
 map("n", "<leader>td", custom.debug_nearest_test, { desc = "Neotest debug nearest test" })
+
+-- Set dark or light themes
+map("n", "<leader>sd", custom.set_dark_theme, { desc = "Set dark theme" })
+map("n", "<leader>sl", custom.set_light_theme, { desc = "Set light theme" })

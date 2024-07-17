@@ -38,10 +38,10 @@ return {
     event = "VeryLazy",
     dependencies = {
       {
-        { "hrsh7th/cmp-nvim-lsp",     lazy = true },
-        { "hrsh7th/cmp-buffer",       lazy = true },
-        { "hrsh7th/cmp-path",         lazy = true },
-        { "hrsh7th/cmp-cmdline",      lazy = true },
+        { "hrsh7th/cmp-nvim-lsp", lazy = true },
+        { "hrsh7th/cmp-buffer", lazy = true },
+        { "hrsh7th/cmp-path", lazy = true },
+        { "hrsh7th/cmp-cmdline", lazy = true },
         { "Exafunction/codeium.nvim", lazy = true },
       },
     },
@@ -49,9 +49,8 @@ return {
   },
   {
     "petertriho/cmp-git",
-    dependencies = { 'hrsh7th/nvim-cmp' },
-    opts = {
-    },
+    dependencies = { "hrsh7th/nvim-cmp" },
+    opts = {},
   },
 
   -- Workspace plugins
@@ -190,8 +189,8 @@ return {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "LspAttach",
     config = function()
-      require('tiny-inline-diagnostic').setup()
-    end
+      require("tiny-inline-diagnostic").setup()
+    end,
   },
   {
     "aznhe21/actions-preview.nvim",
