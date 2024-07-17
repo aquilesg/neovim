@@ -38,14 +38,20 @@ return {
     event = "VeryLazy",
     dependencies = {
       {
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "Exafunction/codeium.nvim",
+        { "hrsh7th/cmp-nvim-lsp",     lazy = true },
+        { "hrsh7th/cmp-buffer",       lazy = true },
+        { "hrsh7th/cmp-path",         lazy = true },
+        { "hrsh7th/cmp-cmdline",      lazy = true },
+        { "Exafunction/codeium.nvim", lazy = true },
       },
     },
     opts = require("configs.overrides").cmp,
+  },
+  {
+    "petertriho/cmp-git",
+    dependencies = { 'hrsh7th/nvim-cmp' },
+    opts = {
+    },
   },
 
   -- Workspace plugins
@@ -92,9 +98,8 @@ return {
     end,
   },
   {
-    "aquilesg/obsidian.nvim",
+    "epwalsh/obsidian.nvim",
     ft = "markdown",
-    branch = "ISSUE-632-support-for-obsidian-callouts",
     cmd = {
       "ObsidianOpen",
       "ObsidianNew",
@@ -180,6 +185,13 @@ return {
     config = function()
       require("lspsaga").setup {}
     end,
+  },
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "LspAttach",
+    config = function()
+      require('tiny-inline-diagnostic').setup()
+    end
   },
   {
     "aznhe21/actions-preview.nvim",

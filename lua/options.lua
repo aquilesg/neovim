@@ -17,3 +17,8 @@ vim.opt.conceallevel = 2
 
 -- Hide commandline
 vim.opt.cmdheight = 0
+
+-- Disable vim diagnostic text
+vim.diagnostic.config({
+  virutal_text = false,
+})
