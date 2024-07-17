@@ -92,8 +92,9 @@ return {
     end,
   },
   {
-    "epwalsh/obsidian.nvim",
+    "aquilesg/obsidian.nvim",
     ft = "markdown",
+    branch = "ISSUE-632-support-for-obsidian-callouts",
     cmd = {
       "ObsidianOpen",
       "ObsidianNew",
@@ -310,6 +311,7 @@ return {
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "jbyuki/one-small-step-for-vimkind",
     },
     config = function()
       require "configs.neotest"

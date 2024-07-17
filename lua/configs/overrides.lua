@@ -97,8 +97,10 @@ if cmp_ok then
   M.cmp = {
     sources = {
       { name = "nvim_lsp", priority = 400 },
-      { name = "codeium",  priority = 75 },
-      { name = "lazydev",  priority = 50 },
+      { name = "codeium", priority = 75 },
+      { name = "lazydev", priority = 50 },
+      { name = "path" },
+      { name = "buffer" },
     },
     mapping = {
       ["<Tab>"] = cmp.mapping.complete(),

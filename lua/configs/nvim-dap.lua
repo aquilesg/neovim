@@ -1,3 +1,6 @@
+local dap = require "dap"
+local M = {}
+
 -- Configure python debugger
 require("dap-python").setup "~/.virtualenvs/debugpy/bin/python"
 
@@ -9,8 +12,17 @@ require("dap-go").setup {
   },
 }
 
-local dap = require "dap"
-local M = {}
+dap.configurations.lua = {
+  {
+    type = "nlua",
+    request = "attach",
+    name = "Attach to running Neovim instance",
+  },
+}
+
+dap.adapters.nlua = function(callback, config)
+  callback { type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }
+end
 
 dap.adapters.go = function(callback, _)
   local stdout = vim.loop.new_pipe(false)
@@ -74,7 +86,7 @@ function M.SetDAPBreakpoint()
   print "Breakpoint set"
 end
 
-local dapui = require("dapui")
+local dapui = require "dapui"
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
 end
