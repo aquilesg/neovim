@@ -44,6 +44,7 @@ end, { desc = "Word Search" })
 -- Quality of Life mappings
 map("n", "<leader>fr", "<cmd> GrugFar <CR>", { desc = "Find and Replace" })
 map("n", "<leader>ge", "<cmd> BlameToggle <CR>", { desc = "Toggle git blame" })
+map("n", "<leader>pc", require("messenger").show, { desc = "Preview Git commit" })
 map("n", "<leader>dv", "<cmd> DiffviewOpen <CR>", { desc = "Open diffview" })
 map("n", "<leader>gl", "<cmd> LazyGit <CR>", { desc = "Open lazygit" })
 map("n", "<leader>gn", "<cmd> Neogit <CR>", { desc = "Open Neogit" })
@@ -65,6 +66,8 @@ map("n", "<leader>us", gitsigns.undo_stage_hunk, { desc = "Undo Stage Hunk" })
 map("n", "<leader>qt", "<cmd> Trouble diagnostics toggle <CR>", { desc = "Toggle Trouble" })
 map("n", "<leader>qb", "<cmd> Trouble diagnostics toggle filter.buf=0 <CR>", { desc = "Toggle buffer diagnostics" })
 map("n", "<leader>qf", "<cmd> Trouble qflist toggle <CR>", { desc = "Toggle quickfix list" })
+-- Todos
+map("n", "<leader>qa", "<cmd> TodoTelescope <CR>", { desc = "Toggle TODO list" })
 
 -- Dap UI
 map("n", "<F1>", require("dapui").toggle, { desc = "Toggle Dap UI" })

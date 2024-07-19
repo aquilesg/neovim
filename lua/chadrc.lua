@@ -1,15 +1,15 @@
 local M = {}
 
 M.ui = {
-  theme = "rosepine-dawn",
-  theme_toggle = { "rosepine", "rosepine-dawn" },
+  theme = "material-lighter",
+  theme_toggle = { "sweetpastel", "material-lighter" },
   cmp = {
     style = "atom_colored",
   },
 
   statusline = {
     theme = "minimal",
-    order = { "mode", "file", "git", "%=", "lsp_msg","recording", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+    order = { "mode", "file", "git", "%=", "lsp_msg", "recording", "%=", "diagnostics", "lsp", "cwd", "cursor" },
     modules = {
       recording = function()
         local recording = vim.fn.reg_recording()

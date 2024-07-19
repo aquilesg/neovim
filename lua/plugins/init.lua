@@ -42,15 +42,11 @@ return {
         { "hrsh7th/cmp-buffer", lazy = true },
         { "hrsh7th/cmp-path", lazy = true },
         { "hrsh7th/cmp-cmdline", lazy = true },
+        { "petertriho/cmp-git", lazy = true },
         { "Exafunction/codeium.nvim", lazy = true },
       },
     },
     opts = require("configs.overrides").cmp,
-  },
-  {
-    "petertriho/cmp-git",
-    dependencies = { "hrsh7th/nvim-cmp" },
-    opts = {},
   },
 
   -- Workspace plugins
@@ -66,9 +62,6 @@ return {
     "winston0410/range-highlight.nvim",
     event = "BufEnter",
     dependencies = { "winston0410/cmd-parser.nvim" },
-    config = function()
-      require("range-highlight").setup()
-    end,
   },
   {
     "folke/noice.nvim",
@@ -84,17 +77,13 @@ return {
   {
     "karb94/neoscroll.nvim",
     event = "VeryLazy",
-    config = function()
-      require("neoscroll").setup()
-    end,
+    opts = {},
   },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "VeryLazy",
-    config = function()
-      require("todo-comments").setup()
-    end,
+    opts = {},
   },
   {
     "epwalsh/obsidian.nvim",
@@ -114,6 +103,14 @@ return {
     },
     config = function()
       require "configs.obsidian"
+    end,
+  },
+  {
+    "MeanderingProgrammer/markdown.nvim",
+    ft = "markdown",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require "configs.markdown"
     end,
   },
   {
@@ -149,22 +146,18 @@ return {
     cmd = {
       "GrugFar",
     },
-    config = function()
-      require("grug-far").setup {}
-    end,
+    opts = {},
   },
   {
     "Myzel394/easytables.nvim",
     cmd = { "EasyTablesCreateNew", "EasyTablesImportThisTable" },
-    config = function()
-      require("easytables").setup {}
-    end,
+    opts = {},
   },
 
   -- LSP
   {
     "folke/lazydev.nvim",
-    ft = "lua", -- only load on lua files
+    ft = "lua",
     opts = {
       library = {
         { path = "luvit-meta/library", words = { "vim%.uv" } },
@@ -194,9 +187,6 @@ return {
   },
   {
     "aznhe21/actions-preview.nvim",
-    config = function()
-      require("actions-preview").setup {}
-    end,
   },
 
   {
@@ -243,6 +233,9 @@ return {
     end,
   },
   {
+    "lsig/messenger.nvim",
+  },
+  {
     "kdheepak/lazygit.nvim",
     cmd = "LazyGit",
     dependencies = {
@@ -264,12 +257,7 @@ return {
   -- AI tools
   {
     "Exafunction/codeium.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("codeium").setup {
-        enable_chat = true,
-      }
-    end,
+    event = "LspAttach",
   },
   {
     "frankroeder/parrot.nvim",
