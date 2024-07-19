@@ -22,12 +22,20 @@ map("n", "<leader>oq", "<cmd> ObsidianQuickSwitch <CR>", { desc = "Quick switch 
 map("n", "<leader>oo", "<cmd> ObsidianOpen <CR>", { desc = "Open current file in Obsidian" })
 map("n", "<leader>onn", "<cmd> ObsidianNew <CR>", { desc = "Create new Obsidian note" })
 map("n", "<leader>oit", "<cmd> ObsidianTemplate <CR>", { desc = "Insert template" })
+map("n", "<leader>onr", "<cmd> ObsidianNewFromTemplate Research/ <CR>", { desc = "Create new note in Research" })
 map(
   "n",
-  "<leader>ont",
-  "<cmd> ObsidianNewFromTemplate Research/ <CR>",
-  { desc = "Create new Obsidian note in research" }
+  "<leader>ons",
+  "<cmd> ObsidianNewFromTemplate StoryNotes/ <CR>",
+  { desc = "Create new Obsidian note in Story" }
 )
+map(
+  "n",
+  "<leader>ons",
+  "<cmd> ObsidianNewFromTemplate StoryNotes/ <CR>",
+  { desc = "Create new Obsidian note in Story" }
+)
+map("n", "<leader>onm", "<cmd> ObsidianNewFromTemplate Misc/ <CR>", { desc = "Create new Obsidian note in Misc" })
 
 -- Parrot mappings
 map("n", "<leader>n", "<cmd> PrtChatNew <CR>", { desc = "New GPT Chat" })
