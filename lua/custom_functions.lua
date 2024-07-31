@@ -53,7 +53,7 @@ function M.format_table()
 end
 
 function M.insert_timestamp()
-  local timestamp = tostring(os.date "%Y-%m-%d:%H:%M:%S -> ")
+  local timestamp = tostring(os.date "> [!timestamp]- %Y-%m-%d:%H:%M")
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   vim.api.nvim_buf_set_lines(0, row, row, false, { "" })
   vim.api.nvim_win_set_cursor(0, { row + 1, 0 })
@@ -81,4 +81,11 @@ function M.set_light_theme()
   vim.cmd "Lazy reload tiny-inline-diagnostic.nvim"
 end
 
+function M.toggle_diffview()
+  if next(require("diffview.lib").views) == nil then
+    vim.cmd "DiffviewOpen"
+  else
+    vim.cmd "DiffviewClose"
+  end
+end
 return M

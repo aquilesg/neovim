@@ -1,8 +1,8 @@
 local M = {}
 
 M.ui = {
-  theme = "material-lighter",
-  theme_toggle = { "sweetpastel", "material-lighter" },
+  theme = "sweetpastel",
+  theme_toggle = { "sweetpastel", "rosepine-dawn" },
   cmp = {
     style = "atom_colored",
   },
@@ -10,6 +10,7 @@ M.ui = {
   statusline = {
     theme = "minimal",
     order = { "mode", "file", "git", "%=", "lsp_msg", "recording", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+    separator_style = "round",
     modules = {
       recording = function()
         local recording = vim.fn.reg_recording()
@@ -19,6 +20,9 @@ M.ui = {
         end
       end,
     },
+  },
+  nvdash = {
+    load_on_startup = true,
   },
 }
 

@@ -1,7 +1,7 @@
 require "nvchad.mappings"
 
 -- add yours here
-
+vim.g.maplocalleader = ","
 local map = vim.keymap.set
 local del = vim.keymap.del
 local gitsigns = require "gitsigns"
@@ -15,7 +15,7 @@ map("n", "<leader>jj", "<cmd> Noice dismiss <CR>", { desc = "Dismiss notificatio
 
 -- Obsidian mappings
 map("n", "<leader>ot", "<cmd> ObsidianToday <CR>", { desc = "Open today's note" })
-map("n", "<leader>ow", "<cmd> ObsidianTomorrow <CR>", { desc = "Open tomorrows's note" })
+map("n", "<leader>ow", "<cmd> ObsidianWorkspace <CR>", { desc = "Open ObsidianWorkspace" })
 map("n", "<leader>oy", "<cmd> ObsidianYesterday <CR>", { desc = "Open yesterday's note" })
 map("n", "<leader>os", "<cmd> ObsidianSearch <CR>", { desc = "Search for note" })
 map("n", "<leader>oq", "<cmd> ObsidianQuickSwitch <CR>", { desc = "Quick switch to different Note" })
@@ -53,7 +53,7 @@ end, { desc = "Word Search" })
 map("n", "<leader>fr", "<cmd> GrugFar <CR>", { desc = "Find and Replace" })
 map("n", "<leader>ge", "<cmd> BlameToggle <CR>", { desc = "Toggle git blame" })
 map("n", "<leader>pc", require("messenger").show, { desc = "Preview Git commit" })
-map("n", "<leader>dv", "<cmd> DiffviewOpen <CR>", { desc = "Open diffview" })
+map("n", "<leader>dv", custom.toggle_diffview, { desc = "Toggle Diffview" })
 map("n", "<leader>gl", "<cmd> LazyGit <CR>", { desc = "Open lazygit" })
 map("n", "<leader>gn", "<cmd> Neogit <CR>", { desc = "Open Neogit" })
 map("n", "<leader>wl", "<cmd> Telescope workspaces <CR>", { desc = "List workspaces" })
@@ -94,6 +94,7 @@ map("n", "<leader>tr", require("neotest").run.run, { desc = "Neotest run nearest
 map("n", "<leader>tw", require("neotest").watch.watch, { desc = "Neotest watch test" })
 map("n", "<leader>to", custom.open_test, { desc = "Neotest open output" })
 map("n", "<leader>td", custom.debug_nearest_test, { desc = "Neotest debug nearest test" })
+map("n", "<leader>tg", require("dap-go").debug_test, { desc = "Debug nearest go test" })
 
 -- Set dark or light themes
 map("n", "<leader>sd", custom.set_dark_theme, { desc = "Set dark theme" })

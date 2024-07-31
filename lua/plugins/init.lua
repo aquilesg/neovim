@@ -224,6 +224,13 @@ return {
       "DiffviewRefresh",
       "DiffviewFileHistory",
     },
+    opts = {
+      views = {
+        merge_tool = {
+          layout = "diff3_mixed",
+        },
+      },
+    },
   },
   {
     "FabijanZulj/blame.nvim",
