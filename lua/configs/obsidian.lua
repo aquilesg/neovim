@@ -18,8 +18,6 @@ require("obsidian").setup {
         },
       },
     },
-  },
-  {
     {
       name = "Research",
       path = "~/Documents/Research",
