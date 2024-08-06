@@ -40,6 +40,7 @@ require("obsidian").setup {
   ui = {
     enable = false,
   },
+  use_advanced_uri = true,
   suppress_missing_scope = {
     projects_v2 = true,
   },

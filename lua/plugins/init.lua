@@ -94,7 +94,7 @@ return {
       "ObsidianQuickSwitch",
       "ObsidianToday",
       "ObsidianYesterday",
-      "ObsidianTomorrow",
+      "ObsidianWorkspace",
       "ObsidianTemplate",
       "ObsidianSearch",
     },
