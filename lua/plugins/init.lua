@@ -6,7 +6,7 @@ return {
     end,
   },
 
-  -- Overriden NvChad plugin configurations
+  -- Overridden plugin configurations
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -80,6 +80,11 @@ return {
     opts = {},
   },
   {
+    "shortcuts/no-neck-pain.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "VeryLazy",
@@ -137,11 +142,6 @@ return {
     end,
   },
   {
-    "folke/zen-mode.nvim",
-    cmd = "ZenMode",
-    dependencies = { "folke/twilight.nvim" },
-  },
-  {
     "MagicDuck/grug-far.nvim",
     cmd = {
       "GrugFar",
@@ -180,26 +180,15 @@ return {
   },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
-    event = "VeryLazy",
+    event = "LspAttach",
     config = function()
       require("tiny-inline-diagnostic").setup()
     end,
   },
   {
     "aznhe21/actions-preview.nvim",
-  },
-
-  {
-    "zeioth/garbage-day.nvim",
-    dependencies = "neovim/nvim-lspconfig",
     event = "LspAttach",
-    config = function()
-      require("garbage-day").setup {
-        excluded_lsp_clients = {
-          "gopls",
-        },
-      }
-    end,
+    opts = {},
   },
   -- Git Tools
   {
@@ -241,10 +230,12 @@ return {
   },
   {
     "lsig/messenger.nvim",
+    opts = {},
   },
   {
     "kdheepak/lazygit.nvim",
     cmd = "LazyGit",
+    opts = {},
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

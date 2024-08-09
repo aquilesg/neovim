@@ -1,8 +1,8 @@
 local M = {}
 
 M.ui = {
-  theme = "tokyodark",
-  theme_toggle = { "sweetpastel", "tokyodark" },
+  theme = "ayu_dark",
+  theme_toggle = { "sweetpastel", "ayu_dark" },
   cmp = {
     style = "atom_colored",
   },

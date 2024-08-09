@@ -15,8 +15,10 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "mermaid",
-    "terraform",
+    "python",
+    "ruby",
     "sql",
+    "terraform",
     "vim",
     "vimdoc",
     "yaml",
@@ -52,13 +54,14 @@ M.mason = {
   ensure_installed = {
     "autopep8",
     "bash-language-server",
-    "black",
     "clangd",
     "docker-compose-language-service",
     "dockerfile-language-server",
+    "flake8",
     "gopls",
     "gofumpt",
     "graphql-language-service-cli",
+    "harper-ls",
     "html-lsp",
     "json-lsp",
     "lua-language-server",
@@ -97,9 +100,9 @@ if cmp_ok then
   M.cmp = {
     sources = {
       { name = "nvim_lsp", priority = 400, group_index = 1 },
-      { name = "codeium",  priority = 75,  group_index = 1 },
-      { name = "lazydev",  priority = 50,  group_index = 2 },
-      { name = "path",     priority = 50,  group_index = 2 },
+      { name = "codeium", priority = 75, group_index = 1 },
+      { name = "lazydev", priority = 50, group_index = 2 },
+      { name = "path", priority = 50, group_index = 2 },
       {
         name = "buffer",
         option = {

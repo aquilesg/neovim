@@ -20,7 +20,7 @@ map("n", "<leader>oy", "<cmd> ObsidianYesterday <CR>", { desc = "Open yesterday'
 map("n", "<leader>os", "<cmd> ObsidianSearch <CR>", { desc = "Search for note" })
 map("n", "<leader>oq", "<cmd> ObsidianQuickSwitch <CR>", { desc = "Quick switch to different note" })
 map("n", "<leader>oo", "<cmd> ObsidianOpen <CR>", { desc = "Open current file in Obsidian" })
-map("n", "<leader>op", "<cmd> ObsidianPasteImage <CR>", { desc = "Paste image into Obsidian note" })
+map("n", "<leader>op", "<cmd> ObsidianPasteImg <CR>", { desc = "Paste image into Obsidian note" })
 map("n", "<leader>onn", "<cmd> ObsidianNew <CR>", { desc = "Create new Obsidian note" })
 map("n", "<leader>oit", "<cmd> ObsidianTemplate <CR>", { desc = "Insert template" })
 map("n", "<leader>onr", "<cmd> ObsidianNewFromTemplate Research/ <CR>", { desc = "Create new note in Research" })
@@ -74,8 +74,6 @@ map("n", "<leader>us", gitsigns.undo_stage_hunk, { desc = "Undo Stage Hunk" })
 -- Diagnostics
 map("n", "<leader>qt", "<cmd> Trouble diagnostics toggle <CR>", { desc = "Toggle Trouble" })
 map("n", "<leader>qb", "<cmd> Trouble diagnostics toggle filter.buf=0 <CR>", { desc = "Toggle buffer diagnostics" })
-map("n", "<leader>qf", "<cmd> Trouble qflist toggle <CR>", { desc = "Toggle quickfix list" })
--- Todos
 map("n", "<leader>qa", "<cmd> TodoTelescope <CR>", { desc = "Toggle TODO list" })
 
 -- Dap UI

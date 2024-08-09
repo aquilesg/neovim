@@ -1,4 +1,7 @@
 require("noice").setup {
+  cmdline = {
+    view = "cmdline"
+  },
   lsp = {
     hover = {
       enabled = false,

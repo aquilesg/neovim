@@ -53,12 +53,10 @@ function M.format_table()
 end
 
 function M.insert_timestamp()
-  local timestamp = tostring(os.date "> [!timestamp]- %Y-%m-%d:%H:%M")
+  local timestamp = tostring(os.date "> [!Timestamp]- %Y-%m-%d:%H:%M")
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   vim.api.nvim_buf_set_lines(0, row, row, false, { "" })
-  vim.api.nvim_win_set_cursor(0, { row + 1, 0 })
   vim.api.nvim_buf_set_text(0, row, 0, row, 0, { timestamp })
-  vim.cmd "startinsert"
 end
 
 function M.debug_nearest_test()
@@ -74,11 +72,8 @@ function close_unnamed_buffers()
   local buffers = vim.api.nvim_list_bufs()
 
   for _, buf in ipairs(buffers) do
-    -- Check if the buffer does not have a name
     if vim.api.nvim_buf_get_name(buf) == "" then
-      -- Check if the buffer is valid and listed
       if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted then
-        -- Close the buffer
         vim.api.nvim_buf_delete(buf, { force = true })
       end
     end

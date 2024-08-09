@@ -30,6 +30,7 @@ local servers = {
   "docker_compose_language_service",
   "gopls",
   "graphql",
+  "harper_ls",
   "html",
   "jsonls",
   "pylsp",
@@ -55,17 +56,10 @@ for _, lsp in ipairs(servers) do
     end
   end
 
-  if lsp == "pylsp" then
+  if lsp == "harper_ls" then
     opts.settings = {
-      pylsp = {
-        plugins = {
-          flake8 = {
-            enabled = true,
-          },
-          pylint = {
-            enabled = true,
-          },
-        },
+      ["harper-ls"] = {
+        userDictPath = "~/dict.txt",
       },
     }
   end
