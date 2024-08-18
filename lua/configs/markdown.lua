@@ -4,4 +4,5 @@ require("render-markdown").setup {
     info = { raw = "[!info]", rendered = "󰋽 Info", highlight = "RenderMarkdownInfo" },
     time = { raw = "[!timestamp]", rendered = " Timestamp", highlight = "RenderMarkdownInfo" },
   },
+  pipe_table = { preset = "heavy" },
 }

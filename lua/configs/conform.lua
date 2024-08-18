@@ -1,6 +1,7 @@
 local slow_format_filetypes = {
   "autopep8",
   "autoflake",
+  "black",
   "json",
   "markdown",
 }
@@ -28,9 +29,9 @@ require("conform").setup {
   formatters_by_ft = {
     lua = { "stylua" },
     go = { "gofumpt" },
-    python = { "autoflake", "autopep8" },
+    python = { "black" },
     bash = { "shfmt" },
     json = { "jq" },
-    markdown = { "prettier", "markdown-toc" },
+    markdown = { "markdown-toc" },
   },
 }

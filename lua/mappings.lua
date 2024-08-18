@@ -53,7 +53,6 @@ end, { desc = "Word Search" })
 -- Quality of Life mappings
 map("n", "<leader>fr", "<cmd> GrugFar <CR>", { desc = "Find and Replace" })
 map("n", "<leader>ge", "<cmd> BlameToggle <CR>", { desc = "Toggle git blame" })
-map("n", "<leader>pc", require("messenger").show, { desc = "Preview Git commit" })
 map("n", "<leader>dvv", custom.toggle_diffview, { desc = "Toggle Diffview" })
 map("n", "<leader>gl", "<cmd> LazyGit <CR>", { desc = "Open lazygit" })
 map("n", "<leader>gn", "<cmd> Neogit <CR>", { desc = "Open Neogit" })

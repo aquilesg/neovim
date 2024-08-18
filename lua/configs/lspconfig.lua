@@ -33,7 +33,7 @@ local servers = {
   "harper_ls",
   "html",
   "jsonls",
-  "pylsp",
+  "pyright",
   "ruby_lsp",
   "sqlls",
   "terraformls",

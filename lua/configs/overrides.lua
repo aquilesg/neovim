@@ -52,7 +52,6 @@ M.telescope = {
 
 M.mason = {
   ensure_installed = {
-    "autopep8",
     "bash-language-server",
     "clangd",
     "docker-compose-language-service",
@@ -67,7 +66,7 @@ M.mason = {
     "lua-language-server",
     "markdown-toc",
     "prettier",
-    "python-lsp-server",
+    "pyright",
     "pylama",
     "shellcheck",
     "shfmt",
@@ -100,7 +99,7 @@ if cmp_ok then
   M.cmp = {
     sources = {
       { name = "nvim_lsp", priority = 400, group_index = 1 },
-      { name = "codeium", priority = 75, group_index = 1 },
+      { name = "codeium", priority = 400, group_index = 1 },
       { name = "lazydev", priority = 50, group_index = 2 },
       { name = "path", priority = 50, group_index = 2 },
       {

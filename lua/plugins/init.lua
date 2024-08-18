@@ -119,6 +119,13 @@ return {
     end,
   },
   {
+    "OXY2DEV/helpview.nvim",
+    ft = "help",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+  {
     "natecraddock/workspaces.nvim",
     cmd = {
       "WorkspacesOpen",
@@ -190,6 +197,12 @@ return {
     event = "LspAttach",
     opts = {},
   },
+  {
+    "zeioth/garbage-day.nvim",
+    dependencies = "neovim/nvim-lspconfig",
+    event = "LspAttach",
+    opts = {},
+  },
   -- Git Tools
   {
     "pwntester/octo.nvim",
@@ -229,10 +242,6 @@ return {
     end,
   },
   {
-    "lsig/messenger.nvim",
-    opts = {},
-  },
-  {
     "kdheepak/lazygit.nvim",
     cmd = "LazyGit",
     opts = {},
@@ -256,6 +265,7 @@ return {
   {
     "Exafunction/codeium.nvim",
     event = "LspAttach",
+    opts = {},
   },
   {
     "frankroeder/parrot.nvim",
