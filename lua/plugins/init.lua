@@ -64,17 +64,6 @@ return {
     dependencies = { "winston0410/cmd-parser.nvim" },
   },
   {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    config = function()
-      require "configs.noice"
-    end,
-  },
-  {
     "karb94/neoscroll.nvim",
     event = "VeryLazy",
     opts = {},
@@ -227,7 +216,7 @@ return {
       "DiffviewFileHistory",
     },
     opts = {
-      views = {
+      view = {
         merge_tool = {
           layout = "diff3_mixed",
         },
@@ -244,7 +233,6 @@ return {
   {
     "kdheepak/lazygit.nvim",
     cmd = "LazyGit",
-    opts = {},
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

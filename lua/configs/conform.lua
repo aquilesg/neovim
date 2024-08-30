@@ -16,7 +16,7 @@ require("conform").setup {
       end
     end
 
-    return { timeout_ms = 500, lsp_format = "fallback" }, on_format
+    return { timeout_ms = 900, lsp_format = "fallback" }, on_format
   end,
 
   format_after_save = function(bufnr)
@@ -31,6 +31,7 @@ require("conform").setup {
     go = { "gofumpt" },
     python = { "black" },
     bash = { "shfmt" },
+    java = { "google-java-format" },
     json = { "jq" },
     markdown = { "markdown-toc" },
   },

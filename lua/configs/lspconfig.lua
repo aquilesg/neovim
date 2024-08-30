@@ -32,6 +32,7 @@ local servers = {
   "graphql",
   "harper_ls",
   "html",
+  "jdtls",
   "jsonls",
   "pyright",
   "ruby_lsp",
