@@ -1,8 +1,7 @@
 local M = {}
 
 M.ui = {
-  theme = "flexoki-light",
-  theme_toggle = { "flexoki-light", "flexoki-light" },
+  theme = "decay",
   cmp = {
     style = "atom_colored",
   },
@@ -23,6 +22,38 @@ M.ui = {
   },
   nvdash = {
     load_on_startup = true,
+  },
+  mason = {
+    cmd = true,
+    pkgs = {
+      "bash-language-server",
+      "buf",
+      "clangd",
+      "docker-compose-language-service",
+      "dockerfile-language-server",
+      "flake8",
+      "gopls",
+      "gofumpt",
+      "google-java-format",
+      "graphql-language-service-cli",
+      "harper-ls",
+      "html-lsp",
+      "jdtls",
+      "json-lsp",
+      "lua-language-server",
+      "markdown-toc",
+      "prettier",
+      "pyright",
+      "pylama",
+      "shellcheck",
+      "shfmt",
+      "terraform-ls",
+      "tflint",
+      "stylua",
+      "sqlls",
+      "typescript-language-server",
+      "yaml-language-server",
+    },
   },
 }
 

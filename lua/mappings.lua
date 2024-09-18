@@ -58,7 +58,7 @@ map("n", "<leader>gl", "<cmd> LazyGit <CR>", { desc = "Open lazygit" })
 map("n", "<leader>gn", "<cmd> Neogit <CR>", { desc = "Open Neogit" })
 map("n", "<leader>wl", "<cmd> Telescope workspaces <CR>", { desc = "List workspaces" })
 map("n", "<leader>ss", "<cmd> SessionsSave <CR>", { desc = "Save current Session" })
-map("n", "<leader>o1", "<cmd> Octo pr create <CR>", { desc = "Create new PR" })
+map("n", "<leader>o1", "<cmd> Octo pr create draft <CR>", { desc = "Create new PR" })
 map("n", "<leader>o2", "<cmd> Octo pr list <CR>", { desc = "List PRs for this repo" })
 map("n", "<leader>o3", "<cmd> Octo pr search <CR>", { desc = "Search for PR" })
 

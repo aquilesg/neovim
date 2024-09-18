@@ -39,7 +39,7 @@ local servers = {
   "sqlls",
   "terraformls",
   "tflint",
-  "tsserver",
+  "ts_ls",
   "yamlls",
 }
 
@@ -63,6 +63,10 @@ for _, lsp in ipairs(servers) do
         userDictPath = "~/dict.txt",
       },
     }
+  end
+
+  if lsp == "clangd" then
+    opts.filetypes = { "c", "cpp", "objc", "objcpp" }
   end
 
   lspconfig[lsp].setup(opts)

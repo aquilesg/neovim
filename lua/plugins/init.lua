@@ -190,7 +190,9 @@ return {
     "zeioth/garbage-day.nvim",
     dependencies = "neovim/nvim-lspconfig",
     event = "LspAttach",
-    opts = {},
+    opts = {
+      excluded_lsp_clients = { "gopls" },
+    },
   },
   -- Git Tools
   {
