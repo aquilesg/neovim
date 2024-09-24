@@ -16,7 +16,6 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = require("configs.overrides").mason,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -113,6 +112,15 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
+  },
+  {
+    "OXY2DEV/foldtext.nvim",
+    lazy = false,
+  },
+  {
+    "folke/drop.nvim",
+    event = "VeryLazy",
+    opts = {},
   },
   {
     "natecraddock/workspaces.nvim",
