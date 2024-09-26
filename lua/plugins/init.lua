@@ -1,6 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
+    event = "VeryLazy",
     config = function()
       require "configs.conform"
     end,
@@ -112,10 +113,6 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
-  },
-  {
-    "OXY2DEV/foldtext.nvim",
-    lazy = false,
   },
   {
     "folke/drop.nvim",
