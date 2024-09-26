@@ -10,6 +10,7 @@ local custom = require "custom_functions"
 -- Remove mappings I don't like
 del("n", "<leader>v")
 del("n", "<leader>h")
+del("n", "<leader>ds")
 
 map("n", "<leader>jj", "<cmd> Noice dismiss <CR>", { desc = "Dismiss notification" })
 
