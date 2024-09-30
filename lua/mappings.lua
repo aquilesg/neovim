@@ -12,8 +12,6 @@ del("n", "<leader>v")
 del("n", "<leader>h")
 del("n", "<leader>ds")
 
-map("n", "<leader>jj", "<cmd> Noice dismiss <CR>", { desc = "Dismiss notification" })
-
 -- Obsidian mappings
 map("n", "<leader>ot", "<cmd> ObsidianToday <CR>", { desc = "Open today's note" })
 map("n", "<leader>ow", "<cmd> ObsidianWorkspace <CR>", { desc = "Open ObsidianWorkspace" })
@@ -79,3 +77,6 @@ map("n", "<leader>qa", "<cmd> TodoTelescope <CR>", { desc = "Toggle TODO list" }
 -- Set dark or light themes
 map("n", "<leader>sd", custom.set_dark_theme, { desc = "Set dark theme" })
 map("n", "<leader>sl", custom.set_light_theme, { desc = "Set light theme" })
+
+-- Load testing / debugging suite
+map({ "n", "v" }, "<leader><F1>", custom.load_test_suite, { desc = "Load test suite" })

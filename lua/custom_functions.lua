@@ -101,4 +101,10 @@ function M.toggle_diffview()
     vim.cmd "DiffviewClose"
   end
 end
+
+function M.load_test_suite()
+  vim.cmd "Lazy load nvim-dap-ui"
+  vim.cmd "Lazy load neotest"
+end
+
 return M

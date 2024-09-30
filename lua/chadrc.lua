@@ -1,7 +1,7 @@
 local M = {}
 
 M.ui = {
-  theme = "blossom_light",
+  theme = "ayu_dark",
   cmp = {
     style = "atom_colored",
   },
