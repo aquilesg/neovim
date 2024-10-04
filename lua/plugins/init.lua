@@ -17,6 +17,15 @@ return {
   },
   {
     "williamboman/mason.nvim",
+    config = function()
+      require "configs.mason"
+    end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require "configs.gitsigns"
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -154,7 +163,11 @@ return {
     cmd = { "EasyTablesCreateNew", "EasyTablesImportThisTable" },
     opts = {},
   },
-
+  {
+    "gcmt/vessel.nvim",
+    event = "VeryLazy",
+    opts = { create_commands = true },
+  },
   -- LSP
   {
     "folke/lazydev.nvim",
@@ -260,6 +273,7 @@ return {
   {
     "Exafunction/codeium.nvim",
     event = "LspAttach",
+    commit = "937667b2cadc7905e6b9ba18ecf84694cf227567",
     opts = {},
   },
   {

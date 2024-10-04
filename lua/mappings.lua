@@ -4,7 +4,6 @@ require "nvchad.mappings"
 vim.g.maplocalleader = ","
 local map = vim.keymap.set
 local del = vim.keymap.del
-local gitsigns = require "gitsigns"
 local custom = require "custom_functions"
 
 -- Remove mappings I don't like
@@ -63,11 +62,6 @@ map("n", "<leader>o3", "<cmd> Octo pr search <CR>", { desc = "Search for PR" })
 
 -- Custom functions
 map("n", "<leader>ts", custom.insert_timestamp, { desc = "Insert timestamp" })
-map({ "v", "n" }, "<leader>ft", custom.format_table, { desc = "Format markdown table" })
-
--- GitSigns mappings
-map("n", "<leader>sh", gitsigns.stage_hunk, { desc = "Stage Hunk" })
-map("n", "<leader>us", gitsigns.undo_stage_hunk, { desc = "Undo Stage Hunk" })
 
 -- Diagnostics
 map("n", "<leader>qt", "<cmd> Trouble diagnostics toggle <CR>", { desc = "Toggle Trouble" })
@@ -80,3 +74,7 @@ map("n", "<leader>sl", custom.set_light_theme, { desc = "Set light theme" })
 
 -- Load testing / debugging suite
 map({ "n", "v" }, "<leader><F1>", custom.load_test_suite, { desc = "Load test suite" })
+
+-- Marks
+map("n", "<leader>ma", "<Plug>(VesselViewLocalJumps)", { desc = "View local jumps" })
+map("n", "<leader>mA", "<cmd> Marks <CR>", { desc = "View local jumps" })

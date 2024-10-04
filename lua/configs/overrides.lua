@@ -20,6 +20,7 @@ M.treesitter = {
     "python",
     "proto",
     "ruby",
+    "scala",
     "sql",
     "terraform",
     "vim",
@@ -54,16 +55,10 @@ M.telescope = {
 }
 
 M.nvimtree = {
-  filters = {
-    git_ignored = false,
-  },
-  renderer = {
-    highlight_git = true,
-    icons = {
-      show = {
-        git = true,
-      },
-    },
+  git = {
+    enable = true,
+    ignore = false,
+    timeout = 700,
   },
 }
 
@@ -72,10 +67,10 @@ local cmp_ok, cmp = pcall(require, "cmp")
 if cmp_ok then
   M.cmp = {
     sources = {
-      { name = "nvim_lsp", priority = 400, group_index = 1 },
-      { name = "codeium", priority = 400, group_index = 1 },
-      { name = "lazydev", priority = 50, group_index = 2 },
-      { name = "path", priority = 50, group_index = 2 },
+      { name = "nvim_lsp", group_index = 1 },
+      { name = "codeium", group_index = 1 },
+      { name = "path", group_index = 1 },
+      { name = "lazydev", group_index = 2 },
       {
         name = "buffer",
         option = {
@@ -83,7 +78,7 @@ if cmp_ok then
             return vim.api.nvim_list_bufs()
           end,
         },
-        group_index = 2,
+        group_index = 1,
       },
       { name = "git" },
     },
