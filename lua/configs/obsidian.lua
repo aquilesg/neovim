@@ -36,6 +36,11 @@ require("obsidian").setup {
         },
       },
     },
+    {
+
+      name = "Robot",
+      path = "~/Repos/robot/Docs/",
+    },
   },
   ui = {
     enable = false,
