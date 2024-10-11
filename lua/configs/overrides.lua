@@ -62,36 +62,4 @@ M.nvimtree = {
   },
 }
 
-local cmp_ok, cmp = pcall(require, "cmp")
-
-if cmp_ok then
-  M.cmp = {
-    sources = {
-      { name = "nvim_lsp", group_index = 1 },
-      { name = "codeium", group_index = 1 },
-      { name = "path", group_index = 1 },
-      { name = "lazydev", group_index = 2 },
-      {
-        name = "buffer",
-        option = {
-          get_bufnrs = function()
-            return vim.api.nvim_list_bufs()
-          end,
-        },
-        group_index = 1,
-      },
-      { name = "git" },
-    },
-    mapping = {
-      ["<Tab>"] = cmp.mapping.complete(),
-      ["<C-y>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Insert,
-        select = true,
-      },
-      ["<CR>"] = cmp.config.disable,
-    },
-    preselect = cmp.PreselectMode.None,
-  }
-end
-
 return M

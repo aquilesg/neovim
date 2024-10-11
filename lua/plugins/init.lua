@@ -17,9 +17,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    config = function()
-      require "configs.mason"
-    end,
+    opts = {},
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -44,18 +42,9 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    event = "VeryLazy",
-    dependencies = {
-      {
-        { "hrsh7th/cmp-nvim-lsp", lazy = true },
-        { "hrsh7th/cmp-buffer", lazy = true },
-        { "hrsh7th/cmp-path", lazy = true },
-        { "hrsh7th/cmp-cmdline", lazy = true },
-        { "petertriho/cmp-git", lazy = true },
-        { "Exafunction/codeium.nvim", lazy = true },
-      },
-    },
-    opts = require("configs.overrides").cmp,
+    opts = function()
+      require "configs.cmp"
+    end,
   },
 
   -- Workspace plugins
@@ -90,7 +79,7 @@ return {
   },
   {
     "epwalsh/obsidian.nvim",
-    ft = "markdown",
+    event = "VeryLazy",
     cmd = {
       "ObsidianOpen",
       "ObsidianNew",
@@ -273,8 +262,9 @@ return {
   {
     "Exafunction/codeium.nvim",
     event = "LspAttach",
-    commit = "937667b2cadc7905e6b9ba18ecf84694cf227567",
-    opts = {},
+    config = function()
+      require "configs.codeium"
+    end,
   },
   {
     "frankroeder/parrot.nvim",
