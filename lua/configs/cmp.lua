@@ -5,12 +5,12 @@ local options = {
       behavior = CMP.ConfirmBehavior.Insert,
       select = true,
     },
-    ["<CR>"] = CMP.config.disable,
   },
   sources = {
     { name = "nvim_lsp", group_index = 1 },
     { name = "codeium", group_index = 1 },
     { name = "path", group_index = 1 },
+    { name = "buffer", group_index = 1 },
     { name = "lazydev", group_index = 2 },
   },
 }
