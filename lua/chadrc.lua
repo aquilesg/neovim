@@ -1,13 +1,11 @@
 local options = {
-
   base46 = {
-    theme = "rosepine",
+    theme = "rosepine-dawn",
     hl_add = {},
     hl_override = {},
     integrations = {},
     changed_themes = {},
     transparency = false,
-    theme_toggle = { "rosepine", "rosepine" },
   },
 
   ui = {

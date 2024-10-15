@@ -260,25 +260,18 @@ return {
   },
   -- AI tools
   {
-    "Exafunction/codeium.nvim",
-    event = "LspAttach",
-    config = function()
-      require "configs.codeium"
-    end,
-  },
-  {
-    "frankroeder/parrot.nvim",
-    tag = "v0.3.1",
-    cmd = {
-      "PrtChatNew",
-      "PrtChatFinder",
-      "PrtChatRespond",
-      "PrtChatToggle",
-      "PrtImplement",
+    "olimorris/codecompanion.nvim",
+    cmd = { "CodeCompanionActions", "CodeCompanionChat" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp",
+      "nvim-telescope/telescope.nvim",
+      { "echasnovski/mini.nvim", version = false },
+      { "stevearc/dressing.nvim", opts = {} },
     },
-    dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
     config = function()
-      require "configs.parrot"
+      require "configs.codecompanion"
     end,
   },
 

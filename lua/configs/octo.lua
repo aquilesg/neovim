@@ -3,3 +3,5 @@ require("octo").setup {
     projects_v2 = true,
   },
 }
+
+vim.treesitter.language.register("markdown", "octo")

@@ -1,18 +1,11 @@
-CMP = require "cmp"
-local options = {
-  mapping = {
-    ["<C-y>"] = CMP.mapping.confirm {
-      behavior = CMP.ConfirmBehavior.Insert,
-      select = true,
-    },
-  },
-  sources = {
-    { name = "nvim_lsp", group_index = 1 },
-    { name = "codeium", group_index = 1 },
-    { name = "path", group_index = 1 },
-    { name = "buffer", group_index = 1 },
-    { name = "lazydev", group_index = 2 },
-  },
+local cmp = require "cmp"
+local nvchad_cmp = require "nvchad.configs.cmp"
+
+local custom_cmp_options = {}
+local merged_options = vim.tbl_deep_extend("force", nvchad_cmp, custom_cmp_options)
+merged_options.mapping["<C-y>"] = cmp.mapping.confirm {
+  behavior = cmp.ConfirmBehavior.Insert,
+  select = true,
 }
 
-return vim.tbl_deep_extend("force", require "nvchad.configs.cmp", options)
+return merged_options
