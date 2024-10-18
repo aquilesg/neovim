@@ -32,26 +32,14 @@ require("codecompanion").setup {
 
 local map = vim.keymap.set
 map(
-  "n",
+  { "n", "v" },
   "<C-a>",
   "<cmd>CodeCompanionActions<cr>",
   { noremap = true, silent = true, desc = "Open CodeCompanionActions" }
 )
 map(
-  "v",
-  "<C-a>",
-  "<cmd>CodeCompanionActions<cr>",
-  { noremap = true, silent = true, desc = "Open CodeCompanionActions" }
-)
-map(
-  "n",
-  "<LocalLeader>a",
-  "<cmd>CodeCompanionChat Toggle<cr>",
-  { noremap = true, silent = true, desc = "Toggle CodeCompanionChat" }
-)
-map(
-  "v",
-  "<LocalLeader>a",
+  { "n", "v" },
+  "<Leader>a",
   "<cmd>CodeCompanionChat Toggle<cr>",
   { noremap = true, silent = true, desc = "Toggle CodeCompanionChat" }
 )
@@ -64,3 +52,4 @@ map(
 
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd [[cab cc CodeCompanion]]
+vim.treesitter.language.register("markdown", "codecompanion")

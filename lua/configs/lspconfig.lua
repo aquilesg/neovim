@@ -35,7 +35,6 @@ local servers = {
   "jdtls",
   "jsonls",
   "pyright",
-  "ruby_lsp",
   "sqlls",
   "terraformls",
   "tflint",
@@ -50,13 +49,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 
-  if lsp == "sqlls" then
-    opts.filetypes = { "sql" }
-    opts.root_dir = function(_)
-      return vim.loop.cwd()
-    end
-  end
-
   if lsp == "harper_ls" then
     opts.settings = {
       ["harper-ls"] = {
@@ -69,5 +61,21 @@ for _, lsp in ipairs(servers) do
     opts.filetypes = { "c", "cpp", "objc", "objcpp" }
   end
 
+  if lsp == "graphql" then
+    opts.filetypes = { "graphql" }
+    opts.root_dir = lspconfig.util.root_pattern(".git", ".graphqlrc*", ".graphql.config.*", "graphql.config.*")
+  end
+
   lspconfig[lsp].setup(opts)
 end
+
+-- Terraform file detection
+vim.cmd [[silent! autocmd! filetype detect BufRead,BufNewFile *.tf]]
+vim.cmd [[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]]
+vim.cmd [[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]]
+vim.cmd [[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]]
+vim.cmd [[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]]
+
+-- Ansible file detection
+vim.cmd [[silent! autocmd! filetype detect BufRead,BufNewFile *.yaml.ansible]]
+vim.cmd [[autocmd BufRead,BufNewFile *.yaml.ansible set filetype=yaml.ansible]]

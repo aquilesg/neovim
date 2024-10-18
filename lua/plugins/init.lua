@@ -44,7 +44,13 @@ return {
     "hrsh7th/nvim-cmp",
     opts = function()
       require "configs.cmp"
+      require("cmp_git").setup {}
     end,
+  },
+  {
+    "petertriho/cmp-git",
+    dependencies = { "hrsh7th/nvim-cmp" },
+    opts = {},
   },
 
   -- Workspace plugins

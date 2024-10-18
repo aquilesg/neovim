@@ -37,10 +37,7 @@ map(
 map("n", "<leader>onm", "<cmd> ObsidianNewFromTemplate Misc/ <CR>", { desc = "Create new Obsidian note in Misc" })
 
 -- Parrot mappings
-map("n", "<leader>n", "<cmd> PrtChatNew <CR>", { desc = "New GPT Chat" })
-map("n", "<leader>1", "<cmd> PrtChatRespond <CR>", { desc = "Respond to GPT Chat" })
-map("n", "<leader>2", "<cmd> PrtChatToggle <CR>", { desc = "Toggle GPT Chat" })
-map("v", "<leader>3", "<cmd> '<, '>PrtImplement <CR>", { desc = "Implement selected section" })
+map("n", "<leader>n", "<cmd> CodeCompanionChat <CR>", { desc = "New CodeCompanionChat" })
 
 -- Telescope overrides
 map({ "n", "v" }, "<leader>ff", "<cmd> Telescope find_files hidden=true <CR>", { desc = "File Search" })
