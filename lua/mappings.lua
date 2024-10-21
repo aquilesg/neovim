@@ -1,7 +1,6 @@
 require "nvchad.mappings"
 
 -- add yours here
-vim.g.maplocalleader = ","
 local map = vim.keymap.set
 local del = vim.keymap.del
 local custom = require "custom_functions"
