@@ -34,7 +34,7 @@ require("conform").setup {
     bash = { "shfmt" },
     java = { "google-java-format" },
     json = { "jq" },
-    markdown = { "doctoc" },
+    markdown = { "doctoc", "markdownlint" },
   },
   formatters = {
     doctoc = {
