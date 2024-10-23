@@ -1,11 +1,6 @@
 local options = {
   base46 = {
-    theme = "rosepine-dawn",
-    hl_add = {},
-    hl_override = {},
-    integrations = {},
-    changed_themes = {},
-    transparency = false,
+    theme = "ayu_light",
   },
 
   ui = {
@@ -32,6 +27,12 @@ local options = {
             vim.cmd "hi RecordingHighlight guifg=#ffffff guibg=#ff0000 gui=bold"
             return "%#RecordingHighlight# Recording: @" .. recording .. " %*"
           end
+        end,
+        cursor = function()
+          local pos = vim.api.nvim_win_get_cursor(0)
+          local row = pos[1]
+          local col = pos[2] + 1
+          return string.format("󰠷 %d 󰠵 %d", row, col)
         end,
       },
     },
