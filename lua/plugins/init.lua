@@ -73,13 +73,14 @@ return {
     opts = {},
   },
   {
-    "shortcuts/no-neck-pain.nvim",
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     event = "VeryLazy",
     opts = {},
   },
   {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    "kylechui/nvim-surround",
+    version = "*",
     event = "VeryLazy",
     opts = {},
   },

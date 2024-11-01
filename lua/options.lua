@@ -1,7 +1,6 @@
 require "nvchad.options"
 
 vim.opt.wrap = false
-vim.opt.conceallevel = 2
 
 -- Hide commandline
 vim.opt.cmdheight = 0

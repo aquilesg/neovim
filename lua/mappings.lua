@@ -68,9 +68,9 @@ map("n", "<leader>qa", "<cmd> TodoTelescope <CR>", { desc = "Toggle TODO list" }
 map("n", "<leader>sd", custom.set_dark_theme, { desc = "Set dark theme" })
 map("n", "<leader>sl", custom.set_light_theme, { desc = "Set light theme" })
 
--- Load testing / debugging suite
-map({ "n", "v" }, "<leader><F1>", custom.load_test_suite, { desc = "Load test suite" })
-
 -- Marks
 map("n", "<leader>ma", "<Plug>(VesselViewLocalJumps)", { desc = "View local jumps" })
 map("n", "<leader>mA", "<cmd> Marks <CR>", { desc = "View local jumps" })
+
+-- Custom Auto-commands
+vim.api.nvim_create_user_command("LoadTestSuite", custom.load_test_suite, { desc = "Load test suite" })
