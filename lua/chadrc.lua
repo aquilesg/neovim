@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "ayu_light",
+    theme = "kanagawa",
   },
 
   ui = {
