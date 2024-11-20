@@ -3,7 +3,6 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local on_attach = function()
   local map = vim.keymap.set
   map("n", "K", "<cmd> Lspsaga hover_doc <CR>", { desc = "Show hover doc" })
-  map("n", "ca", "<cmd> Lspsaga code_action <CR>", { desc = "Show code action" })
   map("n", "gr", "<cmd> Lspsaga finder <CR>", { desc = "Find references" })
   map("n", "gd", "<cmd> Lspsaga goto_definition <CR>", { desc = "Go to definition" })
   map("n", "<leader>pd", "<cmd> Lspsaga peek_definition <CR>", { desc = "Peek definition" })

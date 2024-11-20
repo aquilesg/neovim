@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "kanagawa",
+    theme = "rosepine-dawn",
   },
 
   ui = {
@@ -38,10 +38,6 @@ local options = {
     },
   },
 
-  nvdash = {
-    load_on_startup = true,
-  },
-
   lsp = { signature = true },
 
   cheatsheet = {
@@ -52,6 +48,7 @@ local options = {
   mason = {
     pkgs = {
       "bash-language-server",
+      "black",
       "buf",
       "clangd",
       "docker-compose-language-service",
@@ -68,8 +65,10 @@ local options = {
       "json-lsp",
       "lua-language-server",
       "prettier",
+      "pydocstyle",
       "pyright",
       "pylama",
+      "ruff",
       "shellcheck",
       "shfmt",
       "terraform-ls",

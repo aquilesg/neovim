@@ -15,7 +15,7 @@ del("n", "<leader>ds")
 map("n", "<leader>ot", "<cmd> ObsidianToday <CR>", { desc = "Open today's note" })
 map("n", "<leader>ou", "<cmd> ObsidianTomorrow <CR>", { desc = "Open tomorrow's note" })
 map("n", "<leader>oy", "<cmd> ObsidianYesterday <CR>", { desc = "Open yesterday's note" })
-map("n", "<leader>osn", "<cmd> ObsidianSearch <CR>", { desc = "Obsidian search" })
+map("n", "<leader>osn", "<cmd> ObsidianSearch <CR>", { desc = "Obsidian search notes" })
 map("n", "<leader>ost", "<cmd> ObsidianTags <CR>", { desc = "Search for tags" })
 map("n", "<leader>oq", "<cmd> ObsidianQuickSwitch <CR>", { desc = "Quick switch to different note" })
 map("n", "<leader>oo", "<cmd> ObsidianOpen <CR>", { desc = "Open current file in Obsidian" })
@@ -64,7 +64,7 @@ map("n", "<leader>o3", "<cmd> Octo pr search <CR>", { desc = "Search for PR" })
 map("n", "<leader>ts", custom.insert_timestamp, { desc = "Insert timestamp" })
 
 -- Diagnostics
-map("n", "<leader>qa", "<cmd> TodoTelescope <CR>", { desc = "Toggle TODO list" })
+map("n", "<leader>qa", "<cmd> TodoTrouble <CR>", { desc = "Toggle TODO list" })
 
 -- Set dark or light themes
 map("n", "<leader>sd", custom.set_dark_theme, { desc = "Set dark theme" })

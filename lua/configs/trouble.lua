@@ -1,5 +1,12 @@
 require("trouble").setup {
-  focus = true,
+  modes = {
+    symbols = {
+      focus = true,
+      win = {
+        type = "float",
+      },
+    },
+  },
 }
 
 local map = vim.keymap.set

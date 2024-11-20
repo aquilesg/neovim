@@ -1,7 +1,7 @@
 local M = {}
 
 function M.insert_timestamp()
-  local timestamp = tostring(os.date "> [!Timestamp] %Y-%m-%d:%H:%M")
+  local timestamp = tostring(os.date "> [!Timestamp] %Y-%m-%d %H:%M:%S")
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   vim.api.nvim_buf_set_lines(0, row, row, false, { "" })
   vim.api.nvim_buf_set_text(0, row, 0, row, 0, { timestamp })
