@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "rosepine-dawn",
+    theme = "kanagawa",
   },
 
   ui = {
