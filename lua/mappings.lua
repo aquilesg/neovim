@@ -1,5 +1,4 @@
 require "nvchad.mappings"
-local custom_functions = require "custom_functions"
 
 -- add yours here
 local map = vim.keymap.set
@@ -59,6 +58,7 @@ map("n", "<leader>ss", "<cmd> SessionsSave <CR>", { desc = "Save current Session
 map("n", "<leader>o1", "<cmd> Octo pr create draft <CR>", { desc = "Create new PR" })
 map("n", "<leader>o2", "<cmd> Octo pr list <CR>", { desc = "List PRs for this repo" })
 map("n", "<leader>o3", "<cmd> Octo pr search <CR>", { desc = "Search for PR" })
+map("n", "<leader>td", "<cmd> Dooing <CR>", { desc = "Open Dooing" })
 
 -- Custom functions
 map("n", "<leader>ts", custom.insert_timestamp, { desc = "Insert timestamp" })
@@ -69,10 +69,6 @@ map("n", "<leader>qa", "<cmd> TodoTrouble <CR>", { desc = "Toggle TODO list" })
 -- Set dark or light themes
 map("n", "<leader>sd", custom.set_dark_theme, { desc = "Set dark theme" })
 map("n", "<leader>sl", custom.set_light_theme, { desc = "Set light theme" })
-
--- Marks
-map("n", "<leader>ma", "<Plug>(VesselViewLocalJumps)", { desc = "View local jumps" })
-map("n", "<leader>mA", "<cmd> Marks <CR>", { desc = "View local jumps" })
 
 -- Custom Auto-commands
 vim.api.nvim_create_user_command("LoadTestSuite", custom.load_test_suite, { desc = "Load test suite" })

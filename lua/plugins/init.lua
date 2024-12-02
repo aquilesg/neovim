@@ -72,17 +72,29 @@ return {
     event = "VeryLazy",
     opts = {},
   },
-  { "sphamba/smear-cursor.nvim", event = "VeryLazy", opts = {} },
+  {
+    "sphamba/smear-cursor.nvim",
+    event = "VeryLazy",
+    opts = {
+      stiffness = 0.8,
+      trailing_stiffness = 0.6,
+      trailing_exponent = 0,
+      distance_stop_animating = 0.5,
+      hide_target_hack = false,
+    },
+  },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    event = "VeryLazy",
+    event = "LspAttach",
     opts = {},
   },
   {
     "atiladefreitas/dooing",
-    opts = {},
-    event = "VeryLazy",
+    opts = {
+      save_path = "~/Documents/Work/todos.json",
+    },
+    cmd = "Dooing",
   },
   {
     "kylechui/nvim-surround",
@@ -241,9 +253,9 @@ return {
   {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "LspAttach",
-    config = function()
-      require("tiny-inline-diagnostic").setup()
-    end,
+    opts = {
+      preset = "ghost",
+    },
   },
   {
     "aznhe21/actions-preview.nvim",
