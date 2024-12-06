@@ -55,6 +55,20 @@ return {
 
   -- Workspace plugins
   {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      presets = {
+        command_palette = true,
+        long_message_to_split = true,
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+  {
     "folke/trouble.nvim",
     event = "LspAttach",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -90,13 +104,6 @@ return {
     opts = {},
   },
   {
-    "atiladefreitas/dooing",
-    opts = {
-      save_path = "~/Documents/Work/todos.json",
-    },
-    cmd = "Dooing",
-  },
-  {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
@@ -129,6 +136,15 @@ return {
     config = function()
       require "configs.markdown"
     end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
   },
   {
     "OXY2DEV/helpview.nvim",

@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "doomchad",
+    theme = "everblush",
   },
 
   ui = {
@@ -17,9 +17,8 @@ local options = {
     telescope = { style = "bordered" },
 
     statusline = {
-      theme = "default",
-      order = { "mode", "file", "git", "%=", "lsp_msg", "recording", "%=", "diagnostics", "lsp", "cwd", "cursor" },
-      separator_style = "default",
+      theme = "minimal",
+      order = { "mode", "file", "git", "%=", "lsp_msg", "recording", "%=", "diagnostics", "lsp", "cwd" },
       modules = {
         recording = function()
           local recording = vim.fn.reg_recording()
@@ -28,17 +27,11 @@ local options = {
             return "%#RecordingHighlight# Recording: @" .. recording .. " %*"
           end
         end,
-        cursor = function()
-          local pos = vim.api.nvim_win_get_cursor(0)
-          local row = pos[1]
-          local col = pos[2] + 1
-          return string.format("󰠷 %d 󰠵 %d", row, col)
-        end,
       },
     },
   },
 
-  lsp = { signature = true },
+  lsp = { signature = false },
 
   cheatsheet = {
     theme = "grid",

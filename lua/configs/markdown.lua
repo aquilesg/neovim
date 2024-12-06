@@ -1,4 +1,5 @@
 require("render-markdown").setup {
+  preset = "obsidian",
   callout = {
     done = { raw = "[!Done]", rendered = "󰄬 Done", highlight = "RenderMarkdownSuccess" },
     info = { raw = "[!info]", rendered = "󰋽 Info", highlight = "RenderMarkdownInfo" },

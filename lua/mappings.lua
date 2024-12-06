@@ -58,7 +58,6 @@ map("n", "<leader>ss", "<cmd> SessionsSave <CR>", { desc = "Save current Session
 map("n", "<leader>o1", "<cmd> Octo pr create draft <CR>", { desc = "Create new PR" })
 map("n", "<leader>o2", "<cmd> Octo pr list <CR>", { desc = "List PRs for this repo" })
 map("n", "<leader>o3", "<cmd> Octo pr search <CR>", { desc = "Search for PR" })
-map("n", "<leader>td", "<cmd> Dooing <CR>", { desc = "Open Dooing" })
 
 -- Custom functions
 map("n", "<leader>ts", custom.insert_timestamp, { desc = "Insert timestamp" })
