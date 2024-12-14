@@ -10,6 +10,8 @@ del("n", "<leader>v")
 del("n", "<leader>h")
 del("n", "<leader>ds")
 
+map("n", "<leader>jj", "<cmd> Noice dismiss <CR>", { desc = "Dismiss Noice notification" })
+
 -- Obsidian mappings
 map("n", "<leader>ot", "<cmd> ObsidianToday <CR>", { desc = "Open today's note" })
 map("n", "<leader>ou", "<cmd> ObsidianTomorrow <CR>", { desc = "Open tomorrow's note" })
@@ -42,19 +44,23 @@ map(
 map("n", "<leader>n", "<cmd> CodeCompanionChat <CR>", { desc = "New CodeCompanionChat" })
 
 -- Telescope overrides
-map({ "n", "v" }, "<leader>ff", "<cmd> Telescope find_files hidden=true <CR>", { desc = "File Search" })
-map({ "n", "v" }, "<leader>fw", function()
-  require("telescope").extensions.live_grep_args.live_grep_args()
+local telescope = require "telescope"
+local telescope_builtin = require "telescope.builtin"
+map({ "n" }, "<leader>ff", function()
+  telescope_builtin.find_files { hidden = true, no_ignore = true }
+end, { desc = "File Search" })
+map({ "n" }, "<leader>fw", function()
+  telescope.extensions.live_grep_args.live_grep_args()
 end, { desc = "Word Search" })
+map({ "n", "v" }, "<leader>fW", function()
+  telescope_builtin.grep_string()
+end, { desc = "Word Search under cursor" })
 
 -- Quality of Life mappings
 map("n", "<leader>fr", "<cmd> GrugFar <CR>", { desc = "Find and Replace" })
 map("n", "<leader>ge", "<cmd> BlameToggle <CR>", { desc = "Toggle git blame" })
 map("n", "<leader>dvv", custom.toggle_diffview, { desc = "Toggle Diffview" })
-map("n", "<leader>gl", "<cmd> LazyGit <CR>", { desc = "Open lazygit" })
-map("n", "<leader>gn", "<cmd> Neogit <CR>", { desc = "Open Neogit" })
-map("n", "<leader>wl", "<cmd> Telescope workspaces <CR>", { desc = "List workspaces" })
-map("n", "<leader>ss", "<cmd> SessionsSave <CR>", { desc = "Save current Session" })
+map("n", "<leader>gl", custom.open_lazygit, { desc = "Open lazygit" })
 map("n", "<leader>o1", "<cmd> Octo pr create draft <CR>", { desc = "Create new PR" })
 map("n", "<leader>o2", "<cmd> Octo pr list <CR>", { desc = "List PRs for this repo" })
 map("n", "<leader>o3", "<cmd> Octo pr search <CR>", { desc = "Search for PR" })

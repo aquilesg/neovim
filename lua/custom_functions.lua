@@ -29,16 +29,20 @@ function close_unnamed_buffers()
 end
 
 function M.set_dark_theme()
+  close_unnamed_buffers()
   vim.g.background = "dark"
   vim.cmd "Lazy reload tiny-inline-diagnostic.nvim"
-  close_unnamed_buffers()
+  vim.cmd "Lazy reload markdown.nvim"
+  vim.cmd "Lazy reload drop.nvim"
   vim.cmd "bufdo e"
 end
 
 function M.set_light_theme()
+  close_unnamed_buffers()
   vim.g.background = "light"
   vim.cmd "Lazy reload tiny-inline-diagnostic.nvim"
-  close_unnamed_buffers()
+  vim.cmd "Lazy reload markdown.nvim"
+  vim.cmd "Lazy reload drop.nvim"
   vim.cmd "bufdo e"
 end
 
@@ -53,6 +57,11 @@ end
 function M.load_test_suite()
   vim.cmd "Lazy load nvim-dap-ui"
   vim.cmd "Lazy load neotest"
+end
+
+function M.open_lazygit()
+  local snacks = require "snacks"
+  snacks.lazygit.open()
 end
 
 return M

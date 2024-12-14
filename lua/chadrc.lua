@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "everblush",
+    theme = "catppuccin",
   },
 
   ui = {

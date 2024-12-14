@@ -82,11 +82,6 @@ return {
     dependencies = { "winston0410/cmd-parser.nvim" },
   },
   {
-    "karb94/neoscroll.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
     "sphamba/smear-cursor.nvim",
     event = "VeryLazy",
     opts = {
@@ -159,29 +154,6 @@ return {
     opts = {},
   },
   {
-    "natecraddock/workspaces.nvim",
-    cmd = {
-      "WorkspacesOpen",
-      "WorkspacesAdd",
-      "WorkspacesList",
-      "WorkspacesOpenWorkspace",
-    },
-    config = function()
-      require "configs.workspaces"
-    end,
-  },
-  {
-    "natecraddock/sessions.nvim",
-    cmd = {
-      "SessionsSave",
-      "SessionsLoad",
-      "SessionsStop",
-    },
-    config = function()
-      require "configs.sessions"
-    end,
-  },
-  {
     "MagicDuck/grug-far.nvim",
     cmd = {
       "GrugFar",
@@ -192,11 +164,6 @@ return {
     "Myzel394/easytables.nvim",
     cmd = { "EasyTablesCreateNew", "EasyTablesImportThisTable" },
     opts = {},
-  },
-  {
-    "gcmt/vessel.nvim",
-    event = "VeryLazy",
-    opts = { create_commands = true },
   },
   {
     "folke/snacks.nvim",
@@ -211,6 +178,7 @@ return {
           { section = "keys", gap = 1, padding = 1 },
           function()
             local Snacks = require "snacks"
+            Snacks.scroll.enable()
             local in_git = Snacks.git.get_root() ~= nil
             local cmds = {
               {
@@ -336,25 +304,6 @@ return {
     cmd = { "BlameToggle" },
     config = function()
       require("blame").setup()
-    end,
-  },
-  {
-    "kdheepak/lazygit.nvim",
-    cmd = "LazyGit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-  },
-  {
-    "NeogitOrg/neogit",
-    cmd = "Neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require "configs.neogit"
     end,
   },
   -- AI tools

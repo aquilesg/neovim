@@ -14,4 +14,8 @@ require("render-markdown").setup {
     },
   },
   pipe_table = { preset = "heavy" },
+  html = {
+    enabled = true,
+    conceal_comments = false,
+  },
 }
