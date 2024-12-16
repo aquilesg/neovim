@@ -43,10 +43,6 @@ M.telescope = {
         return { "--hidden" }
       end,
     },
-    find_files = {
-      file_ignore_patterns = { "node_modules", ".git", ".venv" },
-      hidden = true,
-    },
     extensions_list = {
       "workspaces",
       "live_grep_args",
@@ -58,7 +54,7 @@ M.nvimtree = {
   git = {
     enable = true,
     ignore = false,
-    timeout = 700,
+    timeout = 1000,
   },
 }
 
