@@ -1,36 +1,5 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    event = "VeryLazy",
-    config = function()
-      require "configs.conform"
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "nvchad.configs.lspconfig"
-      require "configs.lspconfig"
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {},
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require "configs.gitsigns"
-    end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = require("configs.overrides").treesitter,
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = require("configs.overrides").nvimtree,
-  },
+  -- Workspace plugins
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -39,64 +8,11 @@ return {
     opts = require("configs.overrides").telescope,
   },
   {
-    "hrsh7th/nvim-cmp",
-    opts = function()
-      require "configs.cmp"
-    end,
-  },
-  {
-    "petertriho/cmp-git",
-    dependencies = { "hrsh7th/nvim-cmp" },
-    opts = {},
-    init = function()
-      table.insert(require("cmp").get_config().sources, { name = "git" })
-    end,
-  },
-
-  -- Workspace plugins
-  {
-    "folke/noice.nvim",
+    "stevearc/conform.nvim",
     event = "VeryLazy",
-    opts = {
-      presets = {
-        command_palette = true,
-        long_message_to_split = true,
-      },
-    },
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-  },
-  {
-    "folke/trouble.nvim",
-    event = "LspAttach",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require "configs.trouble"
+      require "configs.conform"
     end,
-  },
-  {
-    "winston0410/range-highlight.nvim",
-    event = "BufEnter",
-    dependencies = { "winston0410/cmd-parser.nvim" },
-  },
-  {
-    "sphamba/smear-cursor.nvim",
-    event = "VeryLazy",
-    opts = {
-      stiffness = 0.8,
-      trailing_stiffness = 0.6,
-      trailing_exponent = 0,
-      distance_stop_animating = 0.5,
-      hide_target_hack = false,
-    },
-  },
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    event = "LspAttach",
-    opts = {},
   },
   {
     "kylechui/nvim-surround",
@@ -125,35 +41,6 @@ return {
     end,
   },
   {
-    "MeanderingProgrammer/markdown.nvim",
-    ft = "markdown",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require "configs.markdown"
-    end,
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
-  },
-  {
-    "OXY2DEV/helpview.nvim",
-    ft = "help",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
-  {
-    "folke/drop.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
     "MagicDuck/grug-far.nvim",
     cmd = {
       "GrugFar",
@@ -165,15 +52,24 @@ return {
     cmd = { "EasyTablesCreateNew", "EasyTablesImportThisTable" },
     opts = {},
   },
+  -- LSP
   {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    config = function()
-      require "configs.snacks"
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      require "configs.cmp"
     end,
   },
-  -- LSP
+  {
+    "williamboman/mason.nvim",
+    opts = {},
+  },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "nvchad.configs.lspconfig"
+      require "configs.lspconfig"
+    end,
+  },
   {
     "folke/lazydev.nvim",
     ft = "lua",
@@ -217,7 +113,27 @@ return {
       excluded_lsp_clients = { "gopls", "pyright" },
     },
   },
+
   -- Git Tools
+  {
+    "petertriho/cmp-git",
+    dependencies = { "hrsh7th/nvim-cmp" },
+    event = { "BufRead git-revise-todo", "BufRead COMMIT_EDITMSG" },
+    ft = { "gitcommit", "octo" },
+    opts = {},
+    config = function()
+      local cmp = require "cmp"
+      cmp.setup.filetype({ "gitcommit", "octo" }, {
+        table.insert(require("cmp").get_config().sources, { name = "git" }),
+      })
+    end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require "configs.gitsigns"
+    end,
+  },
   {
     "pwntester/octo.nvim",
     cmd = "Octo",
@@ -269,6 +185,7 @@ return {
       require("blame").setup()
     end,
   },
+
   -- AI tools
   {
     "olimorris/codecompanion.nvim",
@@ -283,6 +200,23 @@ return {
     },
     config = function()
       require "configs.codecompanion"
+    end,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+    },
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    event = "InsertEnter",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+      table.insert(require("cmp").get_config().sources, { name = "copilot", group_index = 2, priority = 10 })
     end,
   },
 
@@ -326,5 +260,96 @@ return {
     config = function()
       require "configs.neotest"
     end,
+  },
+
+  -- UI plugins
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = require("configs.overrides").nvimtree,
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      presets = {
+        command_palette = true,
+        long_message_to_split = true,
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+  {
+    "folke/trouble.nvim",
+    event = "LspAttach",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require "configs.trouble"
+    end,
+  },
+  {
+    "winston0410/range-highlight.nvim",
+    event = "BufEnter",
+    dependencies = { "winston0410/cmd-parser.nvim" },
+  },
+  {
+    "sphamba/smear-cursor.nvim",
+    event = "VeryLazy",
+    opts = {
+      stiffness = 0.8,
+      trailing_stiffness = 0.6,
+      trailing_exponent = 0,
+      distance_stop_animating = 0.5,
+      hide_target_hack = false,
+    },
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = "LspAttach",
+    opts = {},
+  },
+  {
+    "MeanderingProgrammer/markdown.nvim",
+    ft = "markdown",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require "configs.markdown"
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+  {
+    "OXY2DEV/helpview.nvim",
+    ft = "help",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+  {
+    "folke/drop.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require "configs.snacks"
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = require("configs.overrides").treesitter,
   },
 }

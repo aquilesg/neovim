@@ -1,3 +1,13 @@
+if vim.env.PROF then
+  local snacks = vim.fn.stdpath "data" .. "/lazy/snacks.nvim"
+  vim.opt.rtp:append(snacks)
+  require("snacks.profiler").startup {
+    startup = {
+      event = "VimEnter",
+    },
+  }
+end
+
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","

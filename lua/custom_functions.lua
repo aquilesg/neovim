@@ -64,4 +64,15 @@ function M.open_lazygit()
   snacks.lazygit.open()
 end
 
+-- Added here so I don't load telescope on default
+function M.find_files()
+  local telescope_builtin = require "telescope.builtin"
+  telescope_builtin.find_files { hidden = true, no_ignore = true }
+end
+
+function M.livegrep()
+  local telescope = require "telescope"
+  telescope.extensions.live_grep_args.live_grep_args()
+end
+
 return M

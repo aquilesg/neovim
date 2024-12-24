@@ -14,47 +14,20 @@ map("n", "<leader>jj", "<cmd> Noice dismiss <CR>", { desc = "Dismiss Noice notif
 
 -- Obsidian mappings
 map("n", "<leader>ot", "<cmd> ObsidianToday <CR>", { desc = "Open today's note" })
-map("n", "<leader>ou", "<cmd> ObsidianTomorrow <CR>", { desc = "Open tomorrow's note" })
 map("n", "<leader>oy", "<cmd> ObsidianYesterday <CR>", { desc = "Open yesterday's note" })
 map("n", "<leader>osn", "<cmd> ObsidianSearch <CR>", { desc = "Obsidian search notes" })
 map("n", "<leader>ost", "<cmd> ObsidianTags <CR>", { desc = "Search for tags" })
 map("n", "<leader>oq", "<cmd> ObsidianQuickSwitch <CR>", { desc = "Quick switch to different note" })
 map("n", "<leader>oo", "<cmd> ObsidianOpen <CR>", { desc = "Open current file in Obsidian" })
 map("n", "<leader>op", "<cmd> ObsidianPasteImg <CR>", { desc = "Paste image into Obsidian note" })
-map(
-  "n",
-  "<leader>ons",
-  "<cmd> ObsidianNewFromTemplate StoryNotes/ <CR>",
-  { desc = "Create new Obsidian note in Story Folder" }
-)
-map(
-  "n",
-  "<leader>onm",
-  "<cmd> ObsidianNewFromTemplate Misc/ <CR>",
-  { desc = "Create new Obsidian note in Misc Folder" }
-)
-map(
-  "n",
-  "<leader>onr",
-  "<cmd> ObsidianNewFromTemplate Research/ <CR>",
-  { desc = "Create new Obsidian note in Research Folder" }
-)
+map("n", "<leader>on", "<cmd> ObsidianNewFromTemplate <CR>", { desc = "Create new Obsidian note in Research Folder" })
 
 -- AI Mapping
 map("n", "<leader>n", "<cmd> CodeCompanionChat <CR>", { desc = "New CodeCompanionChat" })
 
 -- Telescope overrides
-local telescope = require "telescope"
-local telescope_builtin = require "telescope.builtin"
-map({ "n" }, "<leader>ff", function()
-  telescope_builtin.find_files { hidden = true, no_ignore = true }
-end, { desc = "File Search" })
-map({ "n" }, "<leader>fw", function()
-  telescope.extensions.live_grep_args.live_grep_args()
-end, { desc = "Word Search" })
-map({ "n", "v" }, "<leader>fW", function()
-  telescope_builtin.grep_string()
-end, { desc = "Word Search under cursor" })
+map({ "n" }, "<leader>ff", custom.find_files, { desc = "File Search" })
+map({ "n" }, "<leader>fw", custom.livegrep, { desc = "Word Search" })
 
 -- Quality of Life mappings
 map("n", "<leader>fr", "<cmd> GrugFar <CR>", { desc = "Find and Replace" })
