@@ -64,6 +64,9 @@ return {
     opts = {},
   },
   {
+    "williamboman/mason-lspconfig.nvim",
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require "nvchad.configs.lspconfig"
